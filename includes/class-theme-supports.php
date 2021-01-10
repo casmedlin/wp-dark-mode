@@ -7,7 +7,6 @@ class WP_Dark_Mode_Theme_Supports {
 
 	public function __construct() {
 		add_action( 'wp_head', [ $this, 'theme_header' ] );
-		//add_action( 'wp_footer', [ $this, 'theme_js' ] );
 		add_filter('wp_dark_mode/not', [$this, 'not_selectors']);
 
 		add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
@@ -154,48 +153,48 @@ class WP_Dark_Mode_Theme_Supports {
 
     public function enqueue_scripts(){
 	    if ($this->is_theme('Astra')) {
-	        wp_enqueue_style('wp-dark-mode-atra', wp_dark_mode()->plugin_url('assets/css/themes/astra.css'));
+		    wp_enqueue_style( 'wp-dark-mode-atra', WP_DARK_MODE_ASSETS . '/css/themes/astra.css' );
         }
 
 	    if ($this->is_theme('Jannah')) {
-	        wp_enqueue_style('wp-dark-mode-jannah', wp_dark_mode()->plugin_url('assets/css/themes/jannah.css'));
+		    wp_enqueue_style( 'wp-dark-mode-jannah', WP_DARK_MODE_ASSETS . '/css/themes/jannah.css' );
         }
 
 	    if ($this->is_theme('OceanWP')) {
-	        wp_enqueue_style('wp-dark-mode-salient', wp_dark_mode()->plugin_url('assets/css/themes/oceanwp.css'));
+		    wp_enqueue_style( 'wp-dark-mode-salient', WP_DARK_MODE_ASSETS . '/css/themes/oceanwp.css' );
         }
 
 	    if ($this->is_theme('Salient')) {
-	        wp_enqueue_style('wp-dark-mode-salient', wp_dark_mode()->plugin_url('assets/css/themes/salient.css'));
+		    wp_enqueue_style( 'wp-dark-mode-salient', WP_DARK_MODE_ASSETS . '/css/themes/salient.css' );
         }
 
 	    if ($this->is_theme('Twenty Twenty')) {
-	        wp_enqueue_style('wp-dark-mode-twentytwenty', wp_dark_mode()->plugin_url('assets/css/themes/twentytwenty.css'));
+		    wp_enqueue_style( 'wp-dark-mode-twentytwenty', WP_DARK_MODE_ASSETS . '/css/themes/twentytwenty.css' );
         }
 
 	    if ($this->is_theme('Salient')) {
-	        wp_enqueue_style('wp-dark-mode-salient', wp_dark_mode()->plugin_url('assets/css/themes/salient.css'));
+		    wp_enqueue_style( 'wp-dark-mode-salient', WP_DARK_MODE_ASSETS . '/css/themes/salient.css' );
         }
 
 	    if ($this->is_theme('Flatsome')) {
-	        wp_enqueue_style('wp-dark-mode-flatsome', wp_dark_mode()->plugin_url('assets/css/themes/flatsome.css'));
+		    wp_enqueue_style( 'wp-dark-mode-flatsome', WP_DARK_MODE_ASSETS . '/css/themes/flatsome.css' );
         }
 
 	    if ($this->is_theme('Avada')) {
-	        wp_enqueue_style('wp-dark-mode-avada', wp_dark_mode()->plugin_url('assets/css/themes/avada.css'));
+		    wp_enqueue_style( 'wp-dark-mode-avada', WP_DARK_MODE_ASSETS . '/css/themes/avada.css' );
         }
 
 	    if ($this->is_theme('The7')) {
-	        wp_enqueue_style('wp-dark-mode-the7', wp_dark_mode()->plugin_url('assets/css/themes/the7.css'));
+		    wp_enqueue_style( 'wp-dark-mode-the7', WP_DARK_MODE_ASSETS . '/css/themes/the7.css' );
         }
 
 
 	    if ($this->is_theme('Betheme')) {
-	        wp_enqueue_style('wp-dark-mode-betheme', wp_dark_mode()->plugin_url('assets/css/themes/betheme.css'));
+		    wp_enqueue_style( 'wp-dark-mode-betheme', WP_DARK_MODE_ASSETS . '/css/themes/betheme.css' );
         }
 
 	    if ($this->is_theme('Newspaper')) {
-	        wp_enqueue_style('wp-dark-mode-newspaper', wp_dark_mode()->plugin_url('assets/css/themes/newspaper.css'));
+		    wp_enqueue_style( 'wp-dark-mode-newspaper', WP_DARK_MODE_ASSETS . '/css/themes/newspaper.css' );
         }
 
     }

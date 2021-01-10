@@ -1,7 +1,7 @@
 <?php
 
 $is_floating = isset( $floating ) && 'yes' == $floating;
-$position    = wp_dark_mode_get_settings( 'wp_dark_mode_display', 'switcher_position', 'right_bottom' );
+$position    = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switcher_position', 'right_bottom' );
 
 ?>
 <input type="checkbox" id="wp-dark-mode-switch" class="wp-dark-mode-switch">

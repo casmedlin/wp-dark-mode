@@ -3,6 +3,12 @@
     const app = {
         init: () => {
 
+            //handle switch click
+            const darkmodeSwitch = document.querySelector('.wp-dark-mode-switch');
+            if (darkmodeSwitch) {
+                darkmodeSwitch.addEventListener('click', app.handleToggle);
+            }
+
             app.initDarkmode();
             app.blockSwitches();
             app.blockPresets();
@@ -12,6 +18,7 @@
             app.checkFloating();
             app.checkSwitchDeps();
             app.checkCustomize();
+            app.checkPresetDeps();
             app.checkTimeBasedDeps();
 
             app.checkSwitchMenu();
@@ -36,6 +43,11 @@
             const customize_colors_checkbox = document.querySelector('.customize_colors input[type=checkbox]');
             if (customize_colors_checkbox) {
                 customize_colors_checkbox.addEventListener('change', app.checkCustomize);
+            }
+
+            const enable_preset_checkbox = document.querySelector('.enable_preset input[type=checkbox]');
+            if (enable_preset_checkbox) {
+                enable_preset_checkbox.addEventListener('change', app.checkPresetDeps);
             }
 
             const switch_menu_checkbox = document.querySelector('.enable_menu_switch input[type=checkbox]');
@@ -99,6 +111,24 @@
 
         },
 
+        //handle switch toggle
+        handleToggle: function (e) {
+
+            const html = document.querySelector('html');
+            html.classList.toggle('wp-dark-mode-active');
+
+            //app.checkDarkMode();
+
+            const is_saved = html.classList.contains('wp-dark-mode-active') ? 1 : 0;
+
+            document.querySelector('.wp-dark-mode-switcher').classList.toggle('active');
+
+            sessionStorage.setItem('wp_dark_mode_admin', is_saved);
+            localStorage.setItem('wp_dark_mode_active', is_saved);
+
+            window.dispatchEvent(new CustomEvent('wp_dark_mode', {active: is_saved}));
+        },
+
         showPopup: (e) => {
             e.preventDefault();
 
@@ -110,7 +140,9 @@
 
             if (wpDarkModeAdmin.enable_backend && 1 == is_saved && !wpDarkModeAdmin.is_block_editor) {
                 document.querySelector('html').classList.add('wp-dark-mode-active');
-                window.dispatchEvent(new Event('darkmodeInit'));
+                document.querySelector('.wp-dark-mode-switcher').classList.add('active');
+
+                window.dispatchEvent(new CustomEvent('wp_dark_mode', {active: is_saved}));
             }
         },
 
@@ -230,7 +262,6 @@
                 return;
             }
 
-
             const is_customized = checkBox.checked;
 
             const isPro = wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active;
@@ -243,6 +274,20 @@
                 document.querySelectorAll('.darkmode_bg_color, .darkmode_text_color, .darkmode_link_color').forEach((element) => {
                     element.style.display = 'none';
                 });
+            }
+        },
+
+        checkPresetDeps: function () {
+
+            const checkBox = document.querySelector('.enable_preset input[type=checkbox]');
+            if (!checkBox) {
+                return;
+            }
+
+            if (checkBox.checked) {
+                document.querySelector('.color_preset').classList.remove('hidden');
+            } else {
+                document.querySelector('.color_preset').classList.add('hidden');
             }
         },
 

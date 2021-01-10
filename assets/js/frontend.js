@@ -4,21 +4,28 @@
 
         init: () => {
 
-            if (typeof wpDarkModeFrontend !== 'undefined' && wpDarkModeFrontend.is_excluded) {
+            //return if wpDarkModeFrontend is undefined or the page is excluded
+            if (wpDarkModeFrontend.is_excluded) {
                 return;
             }
 
-            if (typeof elementor === 'undefined') {
-                if ('' !== wpDarkModeFrontend.includes) {
-                    app.handleIncludes();
-                }
-
-                app.handleExcludes();
-                app.checkDarkMode();
-
-                app.initDarkmode();
+            //return if elementor editor
+            if (typeof elementor !== 'undefined') {
+                return;
             }
 
+            //handle includes
+            if ('' !== wpDarkModeFrontend.includes) {
+                app.handleIncludes();
+            }
+
+            //handle excludes
+            app.handleExcludes();
+
+            //on the initialize darkmode
+            app.initDarkmode();
+
+            //check OS mode
             if (typeof wpDarkModeAdmin === 'undefined') {
 
                 if (sessionStorage.getItem('wp_dark_mode_frontend') != 0) {
@@ -26,20 +33,11 @@
                 }
             }
 
-
-            //app.excludeBGELements();
-
-
+            //handle switch click
             const darkmodeSwitch = document.querySelector('.wp-dark-mode-switch');
             if (darkmodeSwitch) {
                 darkmodeSwitch.addEventListener('click', app.handleToggle);
-                darkmodeSwitch.addEventListener('change', app.handleExcludes);
             }
-
-
-            //window.addEventListener('darkmodeInit', app.checkDarkMode);
-            //window.addEventListener('darkmodeInit', app.handleExcludes);
-            //window.addEventListener('darkmodeInit', app.excludeBGELements);
 
         },
 
@@ -49,70 +47,60 @@
                 return;
             }
 
-            var is_saved = sessionStorage.getItem('wp_dark_mode_frontend');
+            const is_saved = sessionStorage.getItem('wp_dark_mode_frontend');
 
             if (1 == is_saved) {
                 document.querySelector('html').classList.add('wp-dark-mode-active');
-                //app.checkDarkMode();
             }
 
-            window.dispatchEvent(new Event('darkmodeInit'));
-        },
+            app.checkDarkMode();
 
-        excludeBGELements: function () {
-
-            if(typeof wpDarkModeFrontend === 'undefined'){
-                return;
-            }
-
-            const elements = document.querySelectorAll('header, footer, div, section');
-
-            elements.forEach((element) => {
-                const bi = window.getComputedStyle(element, false).backgroundImage;
-                const parallax = element.getAttribute('data-jarallax-original-styles');
-
-                if (bi !== 'none' || parallax) {
-                    element.classList.add('wp-dark-mode-ignore');
-                    element.querySelectorAll('*').forEach((child) => child.classList.add('wp-dark-mode-ignore'));
-                }
-            });
-
+            window.dispatchEvent(new CustomEvent('wp_dark_mode', {active: is_saved}));
         },
 
         handleToggle: function () {
 
             const html = document.querySelector('html');
             html.classList.toggle('wp-dark-mode-active');
+
             app.checkDarkMode();
 
             const is_saved = html.classList.contains('wp-dark-mode-active') ? 1 : 0;
 
-            if (typeof wpDarkModeAdmin === 'undefined') {
-                sessionStorage.setItem('wp_dark_mode_frontend', is_saved);
-                localStorage.setItem('wp_dark_mode_active', is_saved);
-            } else {
-                sessionStorage.setItem('wp_dark_mode_admin', is_saved);
-            }
+            sessionStorage.setItem('wp_dark_mode_frontend', is_saved);
+            localStorage.setItem('wp_dark_mode_active', is_saved);
 
-            window.dispatchEvent(new Event('darkmodeInit'));
+            window.dispatchEvent(new CustomEvent('wp_dark_mode', {active: is_saved}));
         },
 
-        /** check if the darkmode is active or not on initialize */
+        /** check if the darkmode is active or not */
         checkDarkMode: () => {
+
             if (document.querySelector('html').classList.contains('wp-dark-mode-active')) {
-                const {brightness, contrast, sepia} = wpDarkModeFrontend;
+                app.enable();
 
-                DarkReader.enable({
-                    brightness,
-                    contrast,
-                    sepia
-                });
-
+                //add active class from the switch
                 document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.add('active'));
             } else {
                 DarkReader.disable();
+
+                //remove active class from the switch
                 document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.remove('active'));
             }
+
+        },
+
+        /**
+         * enable the darkmode
+         */
+        enable: () => {
+            const {config: {brightness, contrast, sepia}} = wpDarkModeFrontend;
+
+            DarkReader.enable({
+                brightness,
+                contrast,
+                sepia
+            });
         },
 
         checkOsMode: function () {
@@ -160,3 +148,28 @@
     document.addEventListener('DOMContentLoaded', app.init);
 
 })();
+
+//check if main element
+window.wp_dark_mode_is_main_element = (tagName) => {
+    const elements = [
+        'MARK',
+        'CODE',
+        'PRE',
+        'INS',
+        'OPTION',
+        'INPUT',
+        'SELECT',
+        'TEXTAREA',
+        'BUTTON',
+        'A',
+        'VIDEO',
+        'CANVAS',
+        'PROGRESS',
+        'IFRAME',
+        'SVG',
+        'PATH',
+    ];
+
+    return !elements.includes(tagName);
+
+};

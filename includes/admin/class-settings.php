@@ -72,8 +72,8 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 				),
 
 				array(
-					'id'    => 'wp_dark_mode_style',
-					'title' => sprintf( __( '%s <span>Style Settings</span>', 'wp-dark-mode' ),
+					'id'    => 'wp_dark_mode_color',
+					'title' => sprintf( __( '%s <span>Color Settings</span>', 'wp-dark-mode' ),
 						'<i class="dashicons dashicons-admin-customizer" ></i>' ),
 				),
 				array(
@@ -371,7 +371,15 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 					),
 				) ),
 
-				'wp_dark_mode_style' => apply_filters( 'wp_dark_mode/style_settings', array(
+				'wp_dark_mode_color' => apply_filters( 'wp_dark_mode/color_settings', array(
+					'enable_preset' => array(
+						'name'    => 'enable_preset',
+						'default' => 'on',
+						'label'   => __( 'Want to use color presets?', 'wp-dark-mode' ),
+						'desc'    => __( 'Select the predefined darkmode preset colors.', 'wp-dark-mode' ),
+						'type'    => 'switcher',
+					),
+
 					'color_preset' => array(
 						'name'    => 'color_preset',
 						'default' => '0',
@@ -396,7 +404,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 					'customize_colors' => array(
 						'name'    => 'customize_colors',
 						'default' => 'off',
-						'label'   => __( 'Want to customize colors?', 'wp-dark-mode' ),
+						'label'   => __( 'Want to use custom colors?', 'wp-dark-mode' ),
 						'desc'    => __( 'Customize the darkmode background, text and link colors.', 'wp-dark-mode' ),
 						'type'    => 'switcher',
 					),

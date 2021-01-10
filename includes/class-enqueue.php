@@ -75,27 +75,27 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 			}
 
 			wp_localize_script( 'wp-dark-mode-frontend', 'wpDarkModeFrontend', [
-				'brightness' => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'brightness', 100 ),
-				'contrast'   => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'contrast', 90 ),
-				'sepia'      => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'sepia', 10 ),
-
-				'excludes' => apply_filters( 'wp_dark_mode/excludes', trim( $excludes, ',' ) ),
-				'includes' => apply_filters( 'wp_dark_mode/includes', trim( $includes, ',' ) ),
-
-				'is_excluded'         => $is_excluded,
-
+				'config'              => [
+					'brightness' => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'brightness', 100 ),
+					'contrast'   => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'contrast', 90 ),
+					'sepia'      => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'sepia', 10 ),
+				],
+				'colors'              => wp_dark_mode_color_presets(),
+				'enable_preset'       => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'on' ),
 				'enable_frontend'     => wp_dark_mode_enabled(),
 				'enable_os_mode'      => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_os_mode', 'on' ),
+				'excludes'            => apply_filters( 'wp_dark_mode/excludes', trim( $excludes, ',' ) ),
+				'includes'            => apply_filters( 'wp_dark_mode/includes', trim( $includes, ',' ) ),
+				'is_excluded'         => $is_excluded,
 				'remember_darkmode'   => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_advanced', 'remember_darkmode', 'off' ),
-				'is_elementor_editor' => class_exists( '\Elementor\Plugin' ) && Elementor\Plugin::$instance->editor->is_edit_mode(),
+				'default_mode'        => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_advanced', 'default_mode', 'off' ),
+				'images'              => get_option( 'wp_dark_mode_image_settings' ),
 				'is_pro_active'       => wp_dark_mode()->is_pro_active(),
 				'is_ultimate_active'  => wp_dark_mode()->is_ultimate_active(),
-				'enable_backend'      => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ),
-				'default_mode'        => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_advanced', 'default_mode', 'off' ),
-				'is_block_editor'     => is_object($current_screen) && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor(),
 				'pro_version'         => $pro_version,
+				'is_elementor_editor' => class_exists( '\Elementor\Plugin' ) && Elementor\Plugin::$instance->editor->is_edit_mode(),
+				'is_block_editor'     => is_object($current_screen) && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor(),
 
-				'images' => get_option( 'wp_dark_mode_image_settings' ),
 			] );
 		}
 
@@ -106,29 +106,15 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 		 */
 		public function admin_scripts( $hook ) {
 
-			wp_enqueue_script( 'jquery.syotimer', WP_DARK_MODE_ASSETS . '/vendor/jquery.syotimer.min.js', [ 'jquery' ], '2.1.2', true );
-
 			wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
-
-			wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
 			wp_enqueue_style( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/css/admin.css', false, WP_DARK_MODE_VERSION );
 
+			wp_enqueue_script( 'jquery.syotimer', WP_DARK_MODE_ASSETS . '/vendor/jquery.syotimer.min.js', [ 'jquery' ], '2.1.2', true );
+			wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
 
 			/** wp-dark-mode admin js */
 			wp_enqueue_script( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/js/admin.min.js', [ 'wp-util' ], WP_DARK_MODE_VERSION, true );
 
-
-			/** frontend scripts for gutenberg */
-			if ( 'post.php' == $hook
-			     || 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ) ) {
-				/** wp-dark-mode frontend css */
-				wp_enqueue_style( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/css/frontend.css', false, WP_DARK_MODE_VERSION );
-
-				/** wp-dark-mode frontend js */
-				wp_enqueue_script( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/js/frontend.min.js',
-					[ 'jquery', 'wp-util' ], WP_DARK_MODE_VERSION, true );
-
-			}
 
 			$cm_settings = [];
 

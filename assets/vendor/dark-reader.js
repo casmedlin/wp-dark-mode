@@ -2748,11 +2748,45 @@
 
                 target.insertRule(selector + " {}", index);
                 var style = target.cssRules[index].style;
+
                 declarations.forEach(function (_a) {
-                    var property = _a.property, value = _a.value, important = _a.important, sourceValue = _a.sourceValue;
+
+                    var property = _a.property,
+                        value = _a.value,
+                        important = _a.important,
+                        sourceValue = _a.sourceValue;
+
+                    if (wpDarkModeFrontend.enable_preset) {
+                        if (element && wp_dark_mode_is_main_element(element.tagName)) {
+
+                            if ('color' === property) {
+                                style.setProperty(property, 'var(--wp-dark-mode-text)', important ? 'important' : '');
+                            } else if ('background-color' === property) {
+                                style.setProperty(property, 'var(--wp-dark-mode-bg)', important ? 'important' : '');
+                            } else {
+                                style.setProperty(property, value == null ? sourceValue : value, important ? 'important' : '');
+                            }
+
+                        } else if (element && 'A' === element.tagName) {
+                            if ('color' === property) {
+                                style.setProperty(property, 'var(--wp-dark-mode-link)', important ? 'important' : '');
+                            } else if ('background-color' === property) {
+                                style.setProperty(property, 'var(--wp-dark-mode-bg)', important ? 'important' : '');
+                            } else {
+                                style.setProperty(property, value == null ? sourceValue : value, important ? 'important' : '');
+                            }
+                        }
+
+                        return;
+                    }
+
                     style.setProperty(property, value == null ? sourceValue : value, important ? 'important' : '');
+
+
                 });
+
             }
+
             var asyncDeclarations = new Map();
             var asyncDeclarationCounter = 0;
             var rootReadyGroup = { rule: null, rules: [], isGroup: true };

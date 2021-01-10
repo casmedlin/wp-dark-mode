@@ -1,3 +1,76 @@
+.wp-dark-mode-switcher,
+.wp-dark-mode-switcher {
+  display: inline-flex;
+  align-items: center;
+  z-index: 999;
+  position: relative;
+  background: transparent !important;
+  text-align: left;
+}
+
+.wp-dark-mode-switcher label,
+.wp-dark-mode-switcher .toggle {
+  height: 26px;
+  border-radius: 100px;
+  display: inline-block;
+}
+.wp-dark-mode-switcher label {
+  background-color: #eee;
+  position: relative;
+  cursor: pointer;
+  width: 100px;
+}
+
+.wp-dark-mode-switcher .toggle {
+  position: absolute;
+  width: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .15);
+  transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.wp-dark-mode-switcher .modes {
+  width: 74%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wp-dark-mode-switcher .modes p {
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.wp-dark-mode-switcher .dark {
+  opacity: .5;
+}
+
+.wp-dark-mode-switch {
+  display: none !important;
+}
+
+
+.wp-dark-mode-switcher {
+  &.active {
+    .toggle {
+      transform: translateX(100%);
+      background-color: #34323D;
+    }
+
+    .dark {
+      opacity: 1;
+      color: #fff !important;
+    }
+  }
+}
+
 @import "admin_darkmode";
 @import "./components/promo";
 @import "./components/settings";

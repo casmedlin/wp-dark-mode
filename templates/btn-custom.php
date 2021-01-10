@@ -1,10 +1,10 @@
 <?php
 
 $is_floating = isset( $floating ) && 'yes' == $floating;
-$position    = wp_dark_mode_get_settings( 'wp_dark_mode_display', 'switcher_position', 'right_bottom' );
+$position    = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switcher_position', 'right_bottom' );
 
-$light_img = wp_dark_mode_get_settings( 'wp_dark_mode_display', 'switch_icon_light', WP_DARK_MODE_ASSETS.'/images/btn-7/moon.png' );
-$dark_img  = wp_dark_mode_get_settings( 'wp_dark_mode_display', 'switch_icon_dark', WP_DARK_MODE_ASSETS.'/images/btn-7/sun.png' );
+$light_img = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_icon_light', WP_DARK_MODE_ASSETS.'/images/btn-7/moon.png' );
+$dark_img  = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_icon_dark', WP_DARK_MODE_ASSETS.'/images/btn-7/sun.png' );
 
 ?>
 

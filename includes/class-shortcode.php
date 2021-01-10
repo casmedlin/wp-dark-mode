@@ -36,7 +36,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Shortcode' ) ) {
 			$custom_icon = false;
 
 			if ( wp_dark_mode()->is_pro_active() || wp_dark_mode()->is_ultimate_active() ) {
-				$custom_icon = 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_display', 'custom_switch_icon', 'off' );
+				$custom_icon = 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'custom_switch_icon', 'off' );
 			}
 
 			ob_start();
