@@ -101,14 +101,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'type'    => 'switcher',
 					),
 
-					'default_mode'   => array(
-						'name'    => 'default_mode',
-						'default' => 'off',
-						'label'   => __( 'Make Dark Mode Default', 'wp-dark-mode' ),
-						'desc'    => __( 'Make the dark mode as the default mode. Visitors will see the dark mode first.', 'wp-dark-mode' ),
-						'type'    => 'switcher',
-					),
-
                     'enable_backend' => array(
 						'name'    => 'enable_backend',
 						'default' => 'off',
@@ -131,6 +123,14 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 				) ),
 
 				'wp_dark_mode_advanced' => apply_filters( 'wp_dark_mode/advanced_settings', array(
+
+					'default_mode'   => array(
+						'name'    => 'default_mode',
+						'default' => 'off',
+						'label'   => __( 'Make Dark Mode Default', 'wp-dark-mode' ),
+						'desc'    => __( 'Make the dark mode as the default mode. Visitors will see the dark mode first.', 'wp-dark-mode' ),
+						'type'    => 'switcher',
+					),
 
 					'low_image' => array(
 						'name'    => 'low_image',

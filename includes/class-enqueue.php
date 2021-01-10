@@ -36,22 +36,12 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 			/** wp-dark-mode frontend css */
 			wp_enqueue_style( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/css/frontend.css', false, WP_DARK_MODE_VERSION );
 
-			/** wp-dark-mode frontend js */
-			wp_enqueue_script( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/js/frontend.min.js', [ 'jquery', 'wp-util' ],
-				WP_DARK_MODE_VERSION, true );
-
 			/** dark-reader js */
 			wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery', 'wp-util' ], WP_DARK_MODE_VERSION, true );
 
-			/** woocommerce style*/
-			if ( class_exists( 'WooCommerce' ) ) {
-				wp_enqueue_style( 'wp-dark-mode-woocommerce', WP_DARK_MODE_ASSETS . '/css/woocommerce.css' );
-			}
-
-			/** buddypress style*/
-			if ( class_exists( 'BuddyPress' ) ) {
-				wp_enqueue_style( 'wp-dark-mode-buddypress', WP_DARK_MODE_ASSETS . '/css/buddypress.css' );
-			}
+			/** wp-dark-mode frontend js */
+			wp_enqueue_script( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/js/frontend.min.js', [ 'jquery', 'wp-util' ],
+				WP_DARK_MODE_VERSION, true );
 
 			$this->frontend_localize();
 
@@ -81,8 +71,8 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 					'sepia'      => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'sepia', 10 ),
 				],
 				'colors'              => wp_dark_mode_color_presets(),
-				'enable_preset'       => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'on' ),
 				'enable_frontend'     => wp_dark_mode_enabled(),
+				'enable_preset'       => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'on' ),
 				'enable_os_mode'      => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_os_mode', 'on' ),
 				'excludes'            => apply_filters( 'wp_dark_mode/excludes', trim( $excludes, ',' ) ),
 				'includes'            => apply_filters( 'wp_dark_mode/includes', trim( $includes, ',' ) ),

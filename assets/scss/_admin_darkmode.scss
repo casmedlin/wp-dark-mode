@@ -39,9 +39,8 @@
   color: #555;
 }
 
+
 /**--- dark mode ---*/
-
-
 html.wp-dark-mode-active #wpbody {
   :not(.wp-dark-mode-ignore):not(mark):not(code):not(pre):not(ins):not(option):not(input):not(select):not(textarea):not(button):not(a):not(video):not(canvas):not(progress):not(iframe):not(svg):not(path) {
     background-color: #10161E !important;

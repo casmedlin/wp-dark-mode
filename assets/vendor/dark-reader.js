@@ -4229,9 +4229,13 @@
             throw new Error('Theme engine is not supported.');
         }
         createOrUpdateDynamicTheme(theme, fixes, isIFrame$1);
+
+        exports.enabled = true;
     }
     function disable() {
         removeDynamicTheme();
+
+        exports.enabled = false;
     }
     var darkScheme = matchMedia('(prefers-color-scheme: dark)');
     var store = {

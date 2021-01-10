@@ -117,8 +117,6 @@
             const html = document.querySelector('html');
             html.classList.toggle('wp-dark-mode-active');
 
-            //app.checkDarkMode();
-
             const is_saved = html.classList.contains('wp-dark-mode-active') ? 1 : 0;
 
             document.querySelector('.wp-dark-mode-switcher').classList.toggle('active');
@@ -178,6 +176,7 @@
                    .switch_text_dark, 
                    .show_above_post, 
                    .show_above_page, 
+                   .includes, 
                    .excludes, 
                    .exclude_pages, 
                    .exclude_pages, 
