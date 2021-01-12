@@ -39,6 +39,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Shortcode' ) ) {
 				$custom_icon = 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'custom_switch_icon', 'off' );
 			}
 
+
 			ob_start();
 
 			if ( $custom_icon ) {
@@ -51,7 +52,9 @@ if ( ! class_exists( 'WP_Dark_Mode_Shortcode' ) ) {
 				}
 			}
 
-			return ob_get_clean();
+			$html = ob_get_clean();
+
+			return $html;
 		}
 
 		/**

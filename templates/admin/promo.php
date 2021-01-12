@@ -11,7 +11,7 @@ $data = [
 	'discount_text'   => '50% OFF',
 	'pro_text'        => 'GET PRO',
 	'ultimate_text'   => 'GET ULTIMATE',
-	'countdown_time'  => '2020-11-27-20-00-00',
+	'countdown_time'  => '2021-02-14-20-00-00',
 	'is_black_friday' => 'no',
 ];
 
@@ -140,21 +140,7 @@ $title = $is_pro ? $data['pro_title'] : $data['ultimate_title'];
 
             $(document).ready(function () {
 
-				<?php
-				if ( ! empty( $countdown_time ) ) {
-
-//				$date_parts = explode( '-', $date );
-//
-//				$countdown_time = [
-//					'year'   => $date_parts[0],
-//					'month'  => $date_parts[1],
-//					'day'    => $date_parts[2],
-//					'hour'   => $date_parts[3],
-//					'minute' => $date_parts[4],
-//					'second' => $date_parts[5],
-//				];
-
-				?>
+	            <?php if ( ! empty( $countdown_time ) ) { ?>
 
                 if (typeof window.timer_set === 'undefined') {
                     window.timer_set = $('.simple_timer').syotimer({
@@ -163,7 +149,7 @@ $title = $is_pro ? $data['pro_title'] : $data['ultimate_title'];
                         day: <?php echo $countdown_time['day']; ?>,
                         hour: <?php echo $countdown_time['hour']; ?>,
                         minute: <?php echo $countdown_time['minute']; ?>,
-//                        second: <?php // echo $countdown_time['second']; ?>,
+//                      second: <?php // echo $countdown_time['second']; ?>,
                     });
                 }
 				<?php } ?>

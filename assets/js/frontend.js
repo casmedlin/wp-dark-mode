@@ -26,7 +26,8 @@
             app.initDarkmode();
 
             //check OS mode
-            if (sessionStorage.getItem('wp_dark_mode_frontend') != 0) {
+            //if (sessionStorage.getItem('wp_dark_mode_frontend') != 0) {
+            if (localStorage.getItem('wp_dark_mode_active') != 0) {
                 app.checkOsMode();
             }
 
@@ -58,7 +59,8 @@
 
         initDarkmode: function () {
 
-            const is_saved = sessionStorage.getItem('wp_dark_mode_frontend');
+            //const is_saved = sessionStorage.getItem('wp_dark_mode_frontend');
+            const is_saved = localStorage.getItem('wp_dark_mode_active');
 
             if ((is_saved && is_saved != 0) || (!is_saved && wpDarkModeFrontend.default_mode)) {
                 document.querySelector('html').classList.add('wp-dark-mode-active');
@@ -73,7 +75,7 @@
 
             const html = document.querySelector('html');
             html.classList.toggle('wp-dark-mode-active');
-            
+
             const is_saved = html.classList.contains('wp-dark-mode-active') ? 1 : 0;
 
             sessionStorage.setItem('wp_dark_mode_frontend', is_saved);
@@ -124,6 +126,11 @@
         },
 
         handleExcludes: function () {
+
+            if ('' === wpDarkModeFrontend.excludes) {
+                return;
+            }
+
             const elements = document.querySelectorAll(wpDarkModeFrontend.excludes);
 
             elements.forEach((element) => {

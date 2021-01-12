@@ -92,22 +92,11 @@
                 element.classList.add('wp-dark-mode-ignore');
             });
 
-            /**--- license activate button --**/
-            const activate_license = document.querySelector('.activate-license');
-            if (activate_license) {
-                activate_license.addEventListener('click', function () {
-                    const link = document.getElementById('wp_dark_mode_license-tab');
-                    if (link) {
-                        link.click();
-                    }
-                });
-            }
 
             /**--- handle promo popups ---**/
-            document.querySelectorAll('.image-choose-opt.disabled, .form-table tr.disabled').forEach((element) => {
+            setTimeout(() => document.querySelectorAll('.image-choose-opt.disabled, .form-table tr.disabled').forEach((element) => {
                 element.addEventListener('click', app.showPopup);
-            });
-
+            }), 100)
 
         },
 
@@ -146,7 +135,6 @@
 
         blockSwitches: function () {
             if (wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active) {
-
                 return;
             }
 

@@ -36,12 +36,14 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 			/** wp-dark-mode frontend css */
 			wp_enqueue_style( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/css/frontend.css', false, WP_DARK_MODE_VERSION );
 
-			/** dark-reader js */
-			wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery', 'wp-util' ], WP_DARK_MODE_VERSION, true );
-
 			/** wp-dark-mode frontend js */
 			wp_enqueue_script( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/js/frontend.min.js', [ 'jquery', 'wp-util' ],
 				WP_DARK_MODE_VERSION, true );
+
+			if ( ! isset( $_REQUEST['elementor-preview'] ) ) {
+				/** dark-reader js */
+				wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26', true );
+			}
 
 			$this->frontend_localize();
 
@@ -52,7 +54,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 			$is_excluded = isset( $post->ID ) && in_array( $post->ID, wp_dark_mode_exclude_pages() );
 
-			$excludes = '.wp-dark-mode-ignore, .wp-dark-mode-ignore *, .video-js, .select2, .owl-nav, .owl-dots, .google-map';
+			$excludes = wp_dark_mode_get_settings( 'wp_dark_mode_includes_excludes', 'excludes' );
 			$includes = wp_dark_mode_get_settings( 'wp_dark_mode_includes_excludes', 'includes' );
 
 
@@ -70,6 +72,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 					'contrast'   => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'contrast', 90 ),
 					'sepia'      => wp_dark_mode_get_settings( 'wp_dark_mode_display', 'sepia', 10 ),
 				],
+
 				'colors'              => wp_dark_mode_color_presets(),
 				'enable_frontend'     => wp_dark_mode_enabled(),
 				'enable_preset'       => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'on' ),
@@ -96,29 +99,28 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 		 */
 		public function admin_scripts( $hook ) {
 
+
 			wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
 			wp_enqueue_style( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/css/admin.css', false, WP_DARK_MODE_VERSION );
 
 			wp_enqueue_script( 'jquery.syotimer', WP_DARK_MODE_ASSETS . '/vendor/jquery.syotimer.min.js', [ 'jquery' ], '2.1.2', true );
 			wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
 
-			/** wp-dark-mode admin js */
-			wp_enqueue_script( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/js/admin.min.js', [ 'wp-util' ], WP_DARK_MODE_VERSION, true );
-
-
 			$cm_settings = [];
-
 			$cm_settings['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
 
 			wp_enqueue_script( 'wp-theme-plugin-editor' );
 			wp_enqueue_style( 'wp-codemirror' );
+
+			/** wp-dark-mode admin js */
+			wp_enqueue_script( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/js/admin.min.js', [ 'wp-util' ], WP_DARK_MODE_VERSION, true );
 
 			wp_localize_script( 'wp-dark-mode-admin', 'wpDarkModeAdmin', [
 				'pluginUrl'          => WP_DARK_MODE_URL,
 				'is_pro_active'      => wp_dark_mode()->is_pro_active(),
 				'is_ultimate_active' => wp_dark_mode()->is_ultimate_active(),
 				'cm_settings'        => $cm_settings,
-				'is_settings_page'   => 'settings_page_wp-dark-mode-settings' == $hook,
+				'is_settings_page'   => 'wp-dark-mode_page_wp-dark-mode-settings' == $hook,
 				'enable_backend'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ),
 
 				'pro_version' => defined( 'WP_DARK_MODE_PRO_VERSION' ) ? WP_DARK_MODE_PRO_VERSION : 0,

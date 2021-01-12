@@ -23,9 +23,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 			add_action( 'wppool_after_settings', [ $this, 'pro_promo' ] );
 
 			//display the dark mode switcher if the dark mode enabled on frontend
-			if ( 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'show_switcher', 'on' ) ) {
 				add_action( 'wp_footer', [ $this, 'display_widget' ] );
-			}
 
 			//render the admin bar switch
 			if ( is_admin() && 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ) ) {
@@ -138,6 +136,12 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 				return false;
 			}
 
+
+			if ( 'on' != wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'show_switcher', 'on' ) ) {
+				return false;
+			}
+
+
 			$style = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_style', 1 );
 
 			global $wp_dark_mode_license;
@@ -154,11 +158,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 		 * @param $section - setting section
 		 */
 		public function pro_promo(  ) {
-
-			if ( wp_dark_mode()->is_pro_active() || wp_dark_mode()->is_ultimate_active() ) {
-				return;
-			}
-
 			wp_dark_mode()->get_template( 'admin/promo' );
 		}
 

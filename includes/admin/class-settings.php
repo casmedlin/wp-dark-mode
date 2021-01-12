@@ -132,14 +132,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'type'    => 'switcher',
 					),
 
-					'low_image' => array(
-						'name'    => 'low_image',
-						'default' => 'on',
-						'label'   => __( 'Low Image Brightness', 'wp-dark-mode' ),
-						'desc'    => __( 'Decrease the brightness and contrast of images in the dark mode.', 'wp-dark-mode' ),
-						'type'    => 'switcher',
-					),
-
 					'remember_darkmode' => array(
 						'name'    => 'remember_darkmode',
 						'default' => 'off',
@@ -593,7 +585,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 		 * Register the plugin page
 		 */
 		public function settings_menu() {
-			add_submenu_page('wp-dark-mode', 'WP Dark Mode Settings', 'Settings', 'manage_options', 'wp-dark-mode-settings', [$this, 'settings_page'], 1);
+			add_submenu_page('wp-dark-mode', 'WP Dark Mode Settings', 'Settings', 'manage_options', 'wp-dark-mode-settings', [$this, 'settings_page'], 99);
 		}
 
 		/**

@@ -462,32 +462,12 @@
 
 }
 
-/**-- Elements Supports --**/
-.wp-dark-mode-active {
-  .owl-dot {
-    span {
-      box-shadow: inset 0 0 0 2px white !important;
-    }
-  }
-
-  .owl-nav{
-    i{
-      color: white !important;
-    }
-  }
-}
-
-/**-- Nextgen Gallery --**/
-html.wp-dark-mode-active {
-  .galleria-image-protection {
-    display: none !important;
-  }
-
-  .galleria-image-nav {
-    background: transparent !important;
-  }
-}
+/**----**/
 
 .wp-dark-mode-ignore, .wp-dark-mode-include {
   binding: none;
+}
+
+.wp-dark-mode-active .wp-dark-mode-include {
+  background-color: var(--wp-dark-mode-bg) !important;
 }

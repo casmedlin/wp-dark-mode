@@ -1,28 +1,8 @@
-/**
- * Dark Reader v4.9.26
- * https://darkreader.org/
- */
-
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
             (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.DarkReader = {}));
 }(this, (function (exports) { 'use strict';
-
-    /*! *****************************************************************************
-    Copyright (c) Microsoft Corporation.
-
-    Permission to use, copy, modify, and/or distribute this software for any
-    purpose with or without fee is hereby granted.
-
-    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-    PERFORMANCE OF THIS SOFTWARE.
-    ***************************************************************************** */
 
     var __assign = function() {
         __assign = Object.assign || function __assign(t) {
@@ -209,18 +189,24 @@
         });
     }
 
-    var throwCORSError = function (url) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2, Promise.reject(new Error([
-                'Embedded Dark Reader cannot access a cross-origin resource',
-                url,
-                'Overview your URLs and CORS policies or use',
-                '`DarkReader.setFetchMethod(fetch: (url) => Promise<Response>))`.',
-                'See if using `DarkReader.setFetchMethod(window.fetch)`',
-                'before `DarkReader.enable()` works.'
-            ].join(' ')))];
+    var throwCORSError = function (url) {
+
+        return;
+
+        return __awaiter(void 0, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2, Promise.reject(new Error([
+                    'Embedded Dark Reader cannot access a cross-origin resource',
+                    url,
+                    'Overview your URLs and CORS policies or use',
+                    '`DarkReader.setFetchMethod(fetch: (url) => Promise<Response>))`.',
+                    'See if using `DarkReader.setFetchMethod(window.fetch)`',
+                    'before `DarkReader.enable()` works.'
+                ].join(' ')))];
+
+            });
         });
-    }); };
+    };
     var fetcher = throwCORSError;
     function setFetchMethod(fetch) {
         if (fetch) {
@@ -2643,28 +2629,6 @@
         function modifySheet(options) {
             var newRules = options.sourceCSSRules;
 
-            //let newRules = [];
-            // let i = 0;
-            // forEach(rules, (rule) => {
-            //     if (typeof rule.selectorText !== 'undefined') {
-            //
-            //         if (rule.selectorText.includes('wp-dark-mode-ignore')) {
-            //             return;
-            //         }
-            //
-            //         const element = document.querySelector(rule.selectorText);
-            //         if (element && element.classList.contains('wp-dark-mode-ignore')) {
-            //             return;
-            //         }
-            //     }
-            //
-            //     newRules.push( rule);
-            //
-            //     i++;
-            // });
-
-
-
 
             var theme = options.theme, variables = options.variables, ignoreImageAnalysis = options.ignoreImageAnalysis, force = options.force, prepareSheet = options.prepareSheet, isAsyncCancelled = options.isAsyncCancelled;
             var rulesChanged = (rulesModCache.size === 0);
@@ -2729,20 +2693,25 @@
 
                 var selector = rule.selector, declarations = rule.declarations;
 
-                if ('' !== wpDarkModeFrontend.includes) {
-                    const element = document.querySelector(selector);
-                    if (element && !element.classList.contains('wp-dark-mode-include')) {
-                        return;
-                    }
+                const element = document.querySelector(selector);
 
-                }
-
-                if (selector.includes('wp-dark-mode-ignore')) {
+                if (!element) {
                     return;
                 }
 
-                const element = document.querySelector(selector);
-                if (element && element.classList.contains('wp-dark-mode-ignore')) {
+                if ('' !== wpDarkModeFrontend.includes) {
+
+                    if (!element.classList.contains('wp-dark-mode-include')) {
+                        return;
+                    }
+                }
+
+                if (selector.includes('.wp-dark-mode-ignore')) {
+                    return;
+                }
+
+
+                if (element.classList.contains('wp-dark-mode-ignore')) {
                     return;
                 }
 
@@ -2757,7 +2726,8 @@
                         sourceValue = _a.sourceValue;
 
                     if (wpDarkModeFrontend.enable_preset) {
-                        if (element && wp_dark_mode_is_main_element(element.tagName)) {
+
+                        if (wp_dark_mode_is_main_element(element.tagName)) {
 
                             if ('color' === property) {
                                 style.setProperty(property, 'var(--wp-dark-mode-text)', important ? 'important' : '');
@@ -2767,7 +2737,7 @@
                                 style.setProperty(property, value == null ? sourceValue : value, important ? 'important' : '');
                             }
 
-                        } else if (element && 'A' === element.tagName) {
+                        } else if ('A' === element.tagName) {
                             if ('color' === property) {
                                 style.setProperty(property, 'var(--wp-dark-mode-link)', important ? 'important' : '');
                             } else if ('background-color' === property) {
@@ -2776,6 +2746,7 @@
                                 style.setProperty(property, value == null ? sourceValue : value, important ? 'important' : '');
                             }
                         }
+
 
                         return;
                     }
@@ -3711,7 +3682,12 @@
             return returnValue;
         }
         function proxyDeleteRule(index) {
-            deleteRuleDescriptor.value.call(this, index);
+
+            try {
+                deleteRuleDescriptor.value.call(this, index);
+            } catch (e) {
+
+            }
             if (this.ownerNode && !this.ownerNode.classList.contains('darkreader')) {
                 this.ownerNode.dispatchEvent(updateSheetEvent);
             }
