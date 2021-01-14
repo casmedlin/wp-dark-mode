@@ -387,6 +387,8 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 							'8'  => WP_DARK_MODE_ASSETS . '/images/color-presets/9.svg',
 							'9'  => WP_DARK_MODE_ASSETS . '/images/color-presets/10.svg',
 							'10' => WP_DARK_MODE_ASSETS . '/images/color-presets/11.svg',
+							'11' => WP_DARK_MODE_ASSETS . '/images/color-presets/12.svg',
+							'12' => WP_DARK_MODE_ASSETS . '/images/color-presets/13.svg',
 						],
 					),
 					'customize_colors' => array(

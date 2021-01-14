@@ -71,8 +71,8 @@
   }
 }
 
-.wp-dark-mode-ignore {
-  binding: none;
+body.wp-dark-mode_page_wp-dark-mode-settings{
+  height: auto;
 }
 
 @import "admin_darkmode";

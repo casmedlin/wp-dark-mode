@@ -1,7 +1,5 @@
 (function ($) {
 
-    $('body').addClass('wp-dark-mode-ignore');
-
     $(document).ready(function () {
         const sliders = $('.brightness, .contrast, .sepia');
 
