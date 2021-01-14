@@ -493,20 +493,43 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./src/Edit.js":
-/*!*********************!*\
-  !*** ./src/Edit.js ***!
-  \*********************/
+/***/ "./src/Button.js":
+/*!***********************!*\
+  !*** ./src/Button.js ***!
+  \***********************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Image_Choose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Image-Choose */ "./src/Image-Choose.js");
-
-
+/* harmony import */ var _button_presets_btn_1_light_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button-presets/btn-1/light.png */ "./src/button-presets/btn-1/light.png");
+/* harmony import */ var _button_presets_btn_1_light_png__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_1_light_png__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _button_presets_btn_1_dark_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button-presets/btn-1/dark.png */ "./src/button-presets/btn-1/dark.png");
+/* harmony import */ var _button_presets_btn_1_dark_png__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_1_dark_png__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _button_presets_btn_3_moon_dark_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./button-presets/btn-3/moon-dark.png */ "./src/button-presets/btn-3/moon-dark.png");
+/* harmony import */ var _button_presets_btn_3_moon_dark_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_3_moon_dark_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _button_presets_btn_3_moon_light_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./button-presets/btn-3/moon-light.png */ "./src/button-presets/btn-3/moon-light.png");
+/* harmony import */ var _button_presets_btn_3_moon_light_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_3_moon_light_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _button_presets_btn_3_sun_dark_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./button-presets/btn-3/sun-dark.png */ "./src/button-presets/btn-3/sun-dark.png");
+/* harmony import */ var _button_presets_btn_3_sun_dark_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_3_sun_dark_png__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _button_presets_btn_3_sun_light_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./button-presets/btn-3/sun-light.png */ "./src/button-presets/btn-3/sun-light.png");
+/* harmony import */ var _button_presets_btn_3_sun_light_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_3_sun_light_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _button_presets_btn_4_light_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./button-presets/btn-4/light.png */ "./src/button-presets/btn-4/light.png");
+/* harmony import */ var _button_presets_btn_4_light_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_4_light_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _button_presets_btn_4_dark_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./button-presets/btn-4/dark.png */ "./src/button-presets/btn-4/dark.png");
+/* harmony import */ var _button_presets_btn_4_dark_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_4_dark_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _button_presets_btn_5_light_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./button-presets/btn-5/light.png */ "./src/button-presets/btn-5/light.png");
+/* harmony import */ var _button_presets_btn_5_light_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_5_light_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _button_presets_btn_5_dark_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./button-presets/btn-5/dark.png */ "./src/button-presets/btn-5/dark.png");
+/* harmony import */ var _button_presets_btn_5_dark_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_5_dark_png__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _button_presets_btn_6_light_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./button-presets/btn-6/light.png */ "./src/button-presets/btn-6/light.png");
+/* harmony import */ var _button_presets_btn_6_light_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_6_light_png__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _button_presets_btn_6_dark_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./button-presets/btn-6/dark.png */ "./src/button-presets/btn-6/dark.png");
+/* harmony import */ var _button_presets_btn_6_dark_png__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_6_dark_png__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _button_presets_btn_7_light_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./button-presets/btn-7/light.png */ "./src/button-presets/btn-7/light.png");
+/* harmony import */ var _button_presets_btn_7_light_png__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_7_light_png__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _button_presets_btn_7_dark_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./button-presets/btn-7/dark.png */ "./src/button-presets/btn-7/dark.png");
+/* harmony import */ var _button_presets_btn_7_dark_png__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_button_presets_btn_7_dark_png__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -521,42 +544,6 @@ function _typeof(obj) {
   }
 
   return _typeof(obj);
-}
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
 }
 
 function _classCallCheck(instance, Constructor) {
@@ -660,19 +647,261 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
+var __ = wp.i18n.__;
+var _wp$element = wp.element,
+    Component = _wp$element.Component,
+    Fragment = _wp$element.Fragment;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Button = /*#__PURE__*/function (_Component) {
+  _inherits(Button, _Component);
+
+  var _super = _createSuper(Button);
+
+  function Button() {
+    _classCallCheck(this, Button);
+
+    return _super.apply(this, arguments);
   }
 
-  return obj;
+  _createClass(Button, [{
+    key: "render",
+    value: function render() {
+      var style = this.props.style;
+      return wp.element.createElement(Fragment, null, wp.element.createElement("input", {
+        type: "checkbox",
+        id: "wp-dark-mode-switch",
+        className: "wp-dark-mode-switch"
+      }), wp.element.createElement("div", {
+        className: "wp-dark-mode-switcher wp-dark-mode-ignore style-".concat(style)
+      }, style === 2 ? wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "toggle"
+      }), wp.element.createElement("div", {
+        className: "modes"
+      }, wp.element.createElement("p", {
+        className: "light"
+      }, "Light"), wp.element.createElement("p", {
+        className: "dark"
+      }, "Dark"))) : style === 3 ? wp.element.createElement(Fragment, null, wp.element.createElement("img", {
+        className: "sun-light",
+        src: _button_presets_btn_3_sun_light_png__WEBPACK_IMPORTED_MODULE_5___default.a
+      }), wp.element.createElement("img", {
+        className: "sun-dark",
+        src: _button_presets_btn_3_sun_dark_png__WEBPACK_IMPORTED_MODULE_4___default.a
+      }), wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "toggle"
+      })), wp.element.createElement("img", {
+        className: "moon-dark",
+        src: _button_presets_btn_3_moon_dark_png__WEBPACK_IMPORTED_MODULE_2___default.a
+      }), wp.element.createElement("img", {
+        className: "moon-light",
+        src: _button_presets_btn_3_moon_light_png__WEBPACK_IMPORTED_MODULE_3___default.a
+      })) : style === 4 ? wp.element.createElement(Fragment, null, wp.element.createElement("p", null, "Light"), wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "modes"
+      }, wp.element.createElement("img", {
+        className: "light",
+        src: _button_presets_btn_4_light_png__WEBPACK_IMPORTED_MODULE_6___default.a
+      }), wp.element.createElement("img", {
+        className: "dark",
+        src: _button_presets_btn_4_dark_png__WEBPACK_IMPORTED_MODULE_7___default.a
+      }))), wp.element.createElement("p", null, "Dark")) : style === 5 ? wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "modes"
+      }, wp.element.createElement("img", {
+        className: "light",
+        src: _button_presets_btn_5_light_png__WEBPACK_IMPORTED_MODULE_8___default.a
+      }), wp.element.createElement("img", {
+        className: "dark",
+        src: _button_presets_btn_5_dark_png__WEBPACK_IMPORTED_MODULE_9___default.a
+      }))) : style === 6 ? wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "modes"
+      }, wp.element.createElement("img", {
+        className: "light",
+        src: _button_presets_btn_6_light_png__WEBPACK_IMPORTED_MODULE_10___default.a
+      }), wp.element.createElement("img", {
+        className: "dark",
+        src: _button_presets_btn_6_dark_png__WEBPACK_IMPORTED_MODULE_11___default.a
+      }))) : style === 7 ? wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "toggle"
+      }), wp.element.createElement("div", {
+        className: "modes"
+      }, wp.element.createElement("img", {
+        className: "light",
+        src: _button_presets_btn_7_light_png__WEBPACK_IMPORTED_MODULE_12___default.a
+      }), wp.element.createElement("img", {
+        className: "dark",
+        src: _button_presets_btn_7_dark_png__WEBPACK_IMPORTED_MODULE_13___default.a
+      }))) : wp.element.createElement("label", {
+        htmlFor: "wp-dark-mode-switch"
+      }, wp.element.createElement("div", {
+        className: "modes"
+      }, wp.element.createElement("img", {
+        className: "light",
+        src: _button_presets_btn_1_light_png__WEBPACK_IMPORTED_MODULE_0___default.a
+      }), wp.element.createElement("img", {
+        className: "dark",
+        src: _button_presets_btn_1_dark_png__WEBPACK_IMPORTED_MODULE_1___default.a
+      })))));
+    }
+  }]);
+
+  return Button;
+}(Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
+/***/ "./src/Edit.js":
+/*!*********************!*\
+  !*** ./src/Edit.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Image_Choose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Image-Choose */ "./src/Image-Choose.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Button */ "./src/Button.js");
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
 }
 
 var __ = wp.i18n.__;
@@ -691,113 +920,29 @@ var _wp$editor = wp.editor,
     AlignmentToolbar = _wp$editor.AlignmentToolbar;
 
 
+
 var Edit = /*#__PURE__*/function (_Component) {
   _inherits(Edit, _Component);
 
   var _super = _createSuper(Edit);
 
   function Edit() {
-    var _this;
-
     _classCallCheck(this, Edit);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      htmlView: '',
-      switchInit: false,
-      loadingSwitchView: true
-    });
-
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(Edit, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var attributes = this.props.attributes;
-
-      if (attributes.style !== 0 && this.state.htmlView === '') {
-        this.getSwitchView();
-      }
-    }
-  }, {
-    key: "getSwitchView",
-    value: function () {
-      var _getSwitchView = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var attributes, switch_view;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                attributes = this.props.attributes;
-                _context.next = 3;
-                return wp.apiFetch({
-                  path: 'wp-dark-mode/v1/switch/' + attributes.style
-                });
-
-              case 3:
-                switch_view = _context.sent;
-                this.setState({
-                  htmlView: switch_view.success !== undefined && switch_view.success === true ? switch_view.data : '',
-                  loadingSwitchView: false
-                });
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function getSwitchView() {
-        return _getSwitchView.apply(this, arguments);
-      }
-
-      return getSwitchView;
-    }()
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      var attributes = this.props.attributes;
-
-      if (attributes.style !== 0 && this.state.htmlView === '') {
-        this.getSwitchView();
-      }
-
-      if (this.state.htmlView !== '' && !this.state.switchInit) {
-        this.setState({
-          switchInit: true
-        });
-      }
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _this$props = this.props,
           attributes = _this$props.attributes,
           setAttributes = _this$props.setAttributes;
-      var _this$state = this.state,
-          htmlView = _this$state.htmlView,
-          loadingSwitchView = _this$state.loadingSwitchView;
       return wp.element.createElement(Fragment, null, wp.element.createElement(InspectorControls, null, wp.element.createElement(PanelBody, {
         title: __('Switch Style', 'wp-dark-mode')
-      }, wp.element.createElement(_Image_Choose__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, wp.element.createElement(_Image_Choose__WEBPACK_IMPORTED_MODULE_0__["default"], {
         value: attributes.style,
         onChange: function onChange(newValue) {
-          _this2.setState({
-            htmlView: '',
-            switchInit: false,
-            loadingSwitchView: true
-          });
-
           setAttributes({
             style: parseInt(newValue)
           });
@@ -809,20 +954,12 @@ var Edit = /*#__PURE__*/function (_Component) {
             alignment: val
           });
         }
-      })), attributes.style === 0 ? wp.element.createElement(Placeholder, {
-        icon: "admin-site-alt",
-        label: __('Dark Mode Switch', 'wp-dark-mode')
-      }, wp.element.createElement(Spinner, null)) : wp.element.createElement(Fragment, null, loadingSwitchView ? wp.element.createElement(Placeholder, {
-        icon: "admin-site-alt",
-        label: __('Dark Mode Switch', 'wp-dark-mode')
-      }, wp.element.createElement(Spinner, null)) : wp.element.createElement("div", {
+      })), wp.element.createElement("div", {
         style: {
-          paddingTop: '1px',
           textAlign: attributes.alignment
-        },
-        dangerouslySetInnerHTML: {
-          __html: htmlView
         }
+      }, wp.element.createElement(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        style: attributes.style
       })));
     }
   }]);
@@ -1056,6 +1193,160 @@ var Image_Choose = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./src/button-presets/btn-1/dark.png":
+/*!*******************************************!*\
+  !*** ./src/button-presets/btn-1/dark.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABGCAYAAAB4xUL+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTExNDU5MDdFMkQwMTFFQTkzQTNDQ0UxMzc2QUQ5QjMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTExNDU5MDhFMkQwMTFFQTkzQTNDQ0UxMzc2QUQ5QjMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MTE0NTkwNUUyRDAxMUVBOTNBM0NDRTEzNzZBRDlCMyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MTE0NTkwNkUyRDAxMUVBOTNBM0NDRTEzNzZBRDlCMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuctTqYAAAQ9SURBVHja7Jx7aI1hHMefs5ZsYWLLbTQmhZphspkhl0lyyTW3ySIa+UOWcimJ+MMiGRJNY+KP5VKSYmaJRdoorW3WwmbXbMxlUuP78z6r0+mcndtze4/96pO15v2953Oe932fy+95HVmbypjCiAMJYDwYC+JBDBjE6evy9x3gDSgFe2WcUG5+4r9/wyV/8H5gPUgHM8AwP/9/f1ANjsn+hmSJmAKyuISIAI/RDNaCYhVNVbSIJHAELAryOJVgIXiv6poVJWIkOAuWCjjWU7AEtKu8eYUJEHmAf4MiJLwAC1RLCLZFjAaFYLKgc+m+HDqZhgi0RawA5QIlNIB5OlpCMCL285YwQNA5/OFPl3qmMfy5NBzgDNgl+BxOq3pEihKRBzYLzl8B9jADItzHyycfbJCQP5sZEr7cI3IlSaDxwz27iFgJdkjKvY8ZFGFeeot5kvLSiLLELiIK+OhPRlxjhoUnEatAmqSc1G+4YRcRORJz0qDqox1E0EzQKIk5S5iB4SoiQsHdvNQOIraB6F4R8nt6LaDVdBE0FxArOV8jMzScRWQqyNdgughaT1ijIJ/xLSLFwGG/FhFpivJF9YqwYqDpIiYpyjfOZBG0PhmjKF8Mz2ekiATFOZNMFRGnOGe6qSIG94qwRAxVnHMqs5YLjRMRrSFvpokiujTk3WKiiA4NeUcw8atmQYv4oil3tmkiWjTlngi2mySiWmP+Exoe3x5FVGrMT4MwWuNwmCDiE/iq8Rzmg8OmjD6faT6PQ2C1CSIeahZBl8Z1MPN/F0FB03gPwGydIl6DWgNkRDKrnmqjLhEUBQb1b66Cy1yMchFXDOv+08CMCkpSVYuoAU8Mk0H7OaiMIIdJnvh1Xfs8yswMKkFsY1YpU6Log+/MKI9yuNnB8xwkM7PjJbgAboPPQRyH1nu3gnp3IuaAx8w+QWUGj0AdaGLW+mqT01NwOBjCrAmoWP5zCu/RRvJpiHh3S3DF3PRym4hIDrIFH8/NT2zxVEO1G/xioR9UCH/K3c2yO6jY6+B/ICIDraGzJxEUJ/klEqpBA70iT49P16Aa7LchKOG+a1fBm4gf/O5aF0ISPjBrowzzRwRFI5fRHgISGnj3oD0QERSVXEabjSW0cgm1vnSxe4pXYJpNLxPqfc4CVb6ONbxFDe+8lNlIQhWXUOHPoMvXTsh0cM4GEi4xqxrI65Mv0H2fv2nQxqz9nyZW0tKsPG21oJJqnzbUBrsl+hafMzjP9Cwmu/uCqKXSuykKg5mPCNQ+vSKB6h7uapRAC0UTeEv1exkzTOCJ0BbpZcx6d8QdRR/+J7Mma2hr9jrwLtADyaiELeNDeKqeW8zvI/Q+CZH7w2hi5iJvBd9EHFBmSTCd4E0OxVxmvVohlTfhSD++9VL+4WlFjmbQmkWfrMra6CLn0R6zarfGgD5Ov+viAjuc+K7i5P4KMABa/8ApEr8GlwAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-1/light.png":
+/*!********************************************!*\
+  !*** ./src/button-presets/btn-1/light.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABGCAYAAAB4xUL+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTAzRjI3OTNFMkQwMTFFQUEwODdENEQxQUYwRTczNDAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTAzRjI3OTRFMkQwMTFFQUEwODdENEQxQUYwRTczNDAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBMDNGMjc5MUUyRDAxMUVBQTA4N0Q0RDFBRjBFNzM0MCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBMDNGMjc5MkUyRDAxMUVBQTA4N0Q0RDFBRjBFNzM0MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pqnr+XYAAAPpSURBVHja7JzbS1RBHMfPESkTTUstSS1LCUrQLkJJZhJSUBCVXV4iSaz+gSKwhN7qoXqJrAe7QNoFguylCLrYVTMoCiqtZOmiaUZ560KQp+/PnQfZdpdNz8z8ZtcvfBlZkd+Zz/7mzG/mzNG2FMpxnEw0ufAcOBvOglPgycIxPn/SDz+Hm2zb3mWZKnQ8Dt4BX4I7nJHpNDzJVAAL4Br4hzNydcHFpgLIh686o1cLPMNEABnwFccd3YMTTQMQDe8d5RAYrkdwjGkQZsJPHPfUYmImrId7XYRAM0qaaRAqHXc1aNTsgIu14aOO+zpiWiackQDhpUkAouBaR45WmwTiuCQIjSZBKHXkqcikarFPEoRn3PobFeR3dXC8pLi1pmTDBolDguqGDFNAvJMI4i7HPkf5gUA7QdMlxuQPAhAmoNkjOWaTCRmxHU6ORBC2T0Z8QJMuMV63bdtTWGcEIKyUDIHUyXWCGD40yhXE+8QahNge26QgHvuMKFAUL5o7iKWK4iWMgfAqkTuIPEXxZnMFQfuQcZb3YasqxaOWGOCYEbmKY+ZzHRqZimOu4AoiaQyEF0Sq4pgL6XEhRxDJGuKWcwQxqCHuNo4g+jXETcPwKOMGoldT7N3cQHRrip2DrNjJCcQbjfEPAkYSFxCtGuPTIuwCHTnQDgJ1fwfaPo3XUALv57L6fKj5OqqQFRs5gLihexUMnwOMwkgHQaJtvOuAsUwbCNwn6DG9hwGMWLgBMLboyghSHaP65ixgnIRjVY7NISEovTLwltkSoA0uQ8Y+UJYRCEZB7zADQV/OfXxJh5WeykWwEoe36N2NeRL6nWD7+ZBOuy22eOsxfAKuRyZ/HQUAet5bAbf7A1GM5rZljuiYwU34I9xleZ+vdgGQR/RnGpqplncDKl38XCAq2lixDZFlByB1Gc1aKzJUCWgHAoHIEKvS8WEOoR3OBohffo8X4hd0YGRfBGTDVoLgW1D5wjhEN6MwhlCFPt76p6AKMEToZtIM54QZhGuAsMpvZRkERqqYrtLDBMJ7OA8gegKtNQINkU4x1fSEAQSaWot9IYQEQsBoFTC+GQzhi4DgCbroCrESo9q/wcBhQtVnISC8CmUZHkpmtIny+6lBEF7DRcEg/DcIAYOKkEVwtQEQasSN8YXs1eo6uJvhKpXeSS1VihwBJ8LV8B8GAH7Dx+AUbTlI+wQuvig/Ep2Hs9kMSlzMfLheUefp5fxTMjZr3ARC/01kM3xRwktyzXCFOBHoimyFYJajWQMvgeeKTZFQ9FNsvlCZT0/kGjELfHb7+myNGUNrmFnwuGEf0+mdAbFrNGR0+ruK6/krwACat3UCrdygUwAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-3/moon-dark.png":
+/*!************************************************!*\
+  !*** ./src/button-presets/btn-3/moon-dark.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-3/moon-light.png":
+/*!*************************************************!*\
+  !*** ./src/button-presets/btn-3/moon-light.png ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAAsVJREFUSEu1l41x00AQhd+rgKSCOB2ECggVABUQKiBUAKmApAJIBSEVkFQQqIDQQahgmU9z51nbkk4SZmc8Gtune7c/7+2eNdEi4kTSW0k8D8qzvn0n6YPtHxO365a5tTgiziV9LIB1+R9Jz7befWP7W2u//P8geES8lvRZ0koSYGzMB+9uiue/JX2SdGf7cQ7woOcRwYZ4i10BYPspIgj39wJ8Lemc3+eC1vU7nkfE15Lbn5LOch4jAs9fSbq2fbYUtBc8eQzwafaqpIFw39s+/VfgjbCnzcnjyXY4I4KKfiHpeEl++w67DntEUDBHkp5vUyYiKLpfkm5tU4h7sQ680InKvrBNsW1YRJDfL4XLl3tBrjyPiFqxq77qTbXw0jbh34u5KNfDWAX/T3DC+F7SoELtE7w4e0AE8byrYttjage1EJcr28jtYispDtuHgCOX5Br1GrSICEmPto+XIic6C2cBZ9OmcCTle2cbFZxtSStmg1euwwyEZpamJ7p2h66eE/YjctByJekB70C7SQdIwHRH3gGvC3uz4PKhUvhRRFIwyPvSBWESwgUwhcv6J9srwJtU61G83HKJAjXAk75A4SLTAKGMfOd3ZBmv1zINOD/SrWbRqOg9oDSbIcNbnLss8wA0Rca7oq3azomo+iWFhGc4QEEy35EO9mO62UhJal6HHKaC1zD2NpZWIU75PxXdehCp4JyeE+M9LXX2PNYQKPYn1zzX80Du57VtzqLRRK/r+LUR2Q09TzRiMUUxiccNr+tMuDOI9A2QdVwiAnS6RSkoHIdFUG5nJuxUru/UKQJ4Dk0upoS3rinFxegNA27LFLwTxbE2Sg3AUW4meE/4CF3vlajwnrEaLgOKjbJn9LpUQgcNkchqeLB9AMAqIOu4UHDRGE1Z867GTuUQCAn544N8ZkM+OVB3pZpaqJPA5+R7ztq/CDZmL3/38AMAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-3/sun-dark.png":
+/*!***********************************************!*\
+  !*** ./src/button-presets/btn-3/sun-dark.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-3/sun-light.png":
+/*!************************************************!*\
+  !*** ./src/button-presets/btn-3/sun-light.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAA1NJREFUSEutl+FVFUEMhXMrECoQKgAqECoQKwArUCsQKxAqEDuACsQKhAqEDrCCeL45yZ7svtl9K8f5BW9nJsnNzU1G9sLl7qdm9s3MjiQ9vuQarTnk7ndmdifpIve7O39/NrMTSXxvy92vzexZ0sdtd681TmSvzWxX0nMY2TDu7sdm9sPMbiWBzOJaazwNfZJ0uWCcqM/M7J2km3827u7nZvbGzDCUUe6Z2W8ze5S0H8aJEkdOM+fu7mb2JIn9mYad4MYXSffVoY3II2d4z0byWWHeWcqluxPtjSQQIP8YJg2HZvY+f08HesY5AIEOcEDS0Tb4et8nhr9LAtHR6uY8DqYD+wVWHAMVICca4AUhCEnE3wvcGKMUu4bZt0g4dz/MPAUXvpoZDuR6CITyf5yAbC239XwPnWY8cgXJIBCejkSj1PSf2HNd92DEzKhrUIEj5HfEdncHJXSBEoR8l2kciDD8KjzkYxOUiBj4MHw8ZWyNqOzFAciaCGQJsp17znFugD3yjBNEQGQX8RslBtTI6KhUZoiWuUYRTyKAVEDubZWwJuc4Qp4HJNYwP+SYNC46vI1w5O2tmQ2MX2k8o190WtGdqOlcP7NRuHvTdEmrZLiUGQT8VTU++EB/yHWLcciRROPDgyQOQzbk8kVCE2cJBE3IuypwzTglMGhx6HcrNXeHYAcviDy72yAwUY5VI+7X5nwV0wvsSdShC86KzKRW94qcbpXImXLL/t+ISslmg6r7a50D1YdQoGEYSNL1utKMYcSKeyrk8Ar+UONXGVyVV0qK9YTQpDxGrhAJSLnRFieopWHuoC/UdkwqktgtHWkcKYXhl3UeKzlEj/GawzjC31TFfYxOlCqXQ1wMM2CM1DDUknualI/kdQphbD6TdBXMb87FlDOnNbRUUHvO8wF/Q2C6lvp5TiAjdYs0EAHOUDqQiyjp50M3LE1mNBF1CVcgrqPP7CAwF/rknmEiqiNZ7umNUannI8PRLJjHZ0fiUMuLMuHWkWyj5nvGgROmDq0voO5pdb5Ysm+3kpK0O0EAktFOR7lf1TDKRDuUWu/F0tu3lJ61xnvzeO/FkvP9f32xUGJMJsNctvBWwykeF0Pa5qJfFfmMjMINDDGPdet4W0X8BZR0ASWWO1BSAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-4/dark.png":
+/*!*******************************************!*\
+  !*** ./src/button-presets/btn-4/dark.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAAsVJREFUSEu1l41x00AQhd+rgKSCOB2ECggVABUQKiBUAKmApAJIBSEVkFQQqIDQQahgmU9z51nbkk4SZmc8Gtune7c/7+2eNdEi4kTSW0k8D8qzvn0n6YPtHxO365a5tTgiziV9LIB1+R9Jz7befWP7W2u//P8geES8lvRZ0koSYGzMB+9uiue/JX2SdGf7cQ7woOcRwYZ4i10BYPspIgj39wJ8Lemc3+eC1vU7nkfE15Lbn5LOch4jAs9fSbq2fbYUtBc8eQzwafaqpIFw39s+/VfgjbCnzcnjyXY4I4KKfiHpeEl++w67DntEUDBHkp5vUyYiKLpfkm5tU4h7sQ680InKvrBNsW1YRJDfL4XLl3tBrjyPiFqxq77qTbXw0jbh34u5KNfDWAX/T3DC+F7SoELtE7w4e0AE8byrYttjage1EJcr28jtYispDtuHgCOX5Br1GrSICEmPto+XIic6C2cBZ9OmcCTle2cbFZxtSStmg1euwwyEZpamJ7p2h66eE/YjctByJekB70C7SQdIwHRH3gGvC3uz4PKhUvhRRFIwyPvSBWESwgUwhcv6J9srwJtU61G83HKJAjXAk75A4SLTAKGMfOd3ZBmv1zINOD/SrWbRqOg9oDSbIcNbnLss8wA0Rca7oq3azomo+iWFhGc4QEEy35EO9mO62UhJal6HHKaC1zD2NpZWIU75PxXdehCp4JyeE+M9LXX2PNYQKPYn1zzX80Du57VtzqLRRK/r+LUR2Q09TzRiMUUxiccNr+tMuDOI9A2QdVwiAnS6RSkoHIdFUG5nJuxUru/UKQJ4Dk0upoS3rinFxegNA27LFLwTxbE2Sg3AUW4meE/4CF3vlajwnrEaLgOKjbJn9LpUQgcNkchqeLB9AMAqIOu4UHDRGE1Z867GTuUQCAn544N8ZkM+OVB3pZpaqJPA5+R7ztq/CDZmL3/38AMAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-4/light.png":
+/*!********************************************!*\
+  !*** ./src/button-presets/btn-4/light.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAA1NJREFUSEutl+FVFUEMhXMrECoQKgAqECoQKwArUCsQKxAqEDuACsQKhAqEDrCCeL45yZ7svtl9K8f5BW9nJsnNzU1G9sLl7qdm9s3MjiQ9vuQarTnk7ndmdifpIve7O39/NrMTSXxvy92vzexZ0sdtd681TmSvzWxX0nMY2TDu7sdm9sPMbiWBzOJaazwNfZJ0uWCcqM/M7J2km3827u7nZvbGzDCUUe6Z2W8ze5S0H8aJEkdOM+fu7mb2JIn9mYad4MYXSffVoY3II2d4z0byWWHeWcqluxPtjSQQIP8YJg2HZvY+f08HesY5AIEOcEDS0Tb4et8nhr9LAtHR6uY8DqYD+wVWHAMVICca4AUhCEnE3wvcGKMUu4bZt0g4dz/MPAUXvpoZDuR6CITyf5yAbC239XwPnWY8cgXJIBCejkSj1PSf2HNd92DEzKhrUIEj5HfEdncHJXSBEoR8l2kciDD8KjzkYxOUiBj4MHw8ZWyNqOzFAciaCGQJsp17znFugD3yjBNEQGQX8RslBtTI6KhUZoiWuUYRTyKAVEDubZWwJuc4Qp4HJNYwP+SYNC46vI1w5O2tmQ2MX2k8o190WtGdqOlcP7NRuHvTdEmrZLiUGQT8VTU++EB/yHWLcciRROPDgyQOQzbk8kVCE2cJBE3IuypwzTglMGhx6HcrNXeHYAcviDy72yAwUY5VI+7X5nwV0wvsSdShC86KzKRW94qcbpXImXLL/t+ISslmg6r7a50D1YdQoGEYSNL1utKMYcSKeyrk8Ar+UONXGVyVV0qK9YTQpDxGrhAJSLnRFieopWHuoC/UdkwqktgtHWkcKYXhl3UeKzlEj/GawzjC31TFfYxOlCqXQ1wMM2CM1DDUknualI/kdQphbD6TdBXMb87FlDOnNbRUUHvO8wF/Q2C6lvp5TiAjdYs0EAHOUDqQiyjp50M3LE1mNBF1CVcgrqPP7CAwF/rknmEiqiNZ7umNUannI8PRLJjHZ0fiUMuLMuHWkWyj5nvGgROmDq0voO5pdb5Ysm+3kpK0O0EAktFOR7lf1TDKRDuUWu/F0tu3lJ61xnvzeO/FkvP9f32xUGJMJsNctvBWwykeF0Pa5qJfFfmMjMINDDGPdet4W0X8BZR0ASWWO1BSAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-5/dark.png":
+/*!*******************************************!*\
+  !*** ./src/button-presets/btn-5/dark.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAAsVJREFUSEu1l41x00AQhd+rgKSCOB2ECggVABUQKiBUAKmApAJIBSEVkFQQqIDQQahgmU9z51nbkk4SZmc8Gtune7c/7+2eNdEi4kTSW0k8D8qzvn0n6YPtHxO365a5tTgiziV9LIB1+R9Jz7befWP7W2u//P8geES8lvRZ0koSYGzMB+9uiue/JX2SdGf7cQ7woOcRwYZ4i10BYPspIgj39wJ8Lemc3+eC1vU7nkfE15Lbn5LOch4jAs9fSbq2fbYUtBc8eQzwafaqpIFw39s+/VfgjbCnzcnjyXY4I4KKfiHpeEl++w67DntEUDBHkp5vUyYiKLpfkm5tU4h7sQ680InKvrBNsW1YRJDfL4XLl3tBrjyPiFqxq77qTbXw0jbh34u5KNfDWAX/T3DC+F7SoELtE7w4e0AE8byrYttjage1EJcr28jtYispDtuHgCOX5Br1GrSICEmPto+XIic6C2cBZ9OmcCTle2cbFZxtSStmg1euwwyEZpamJ7p2h66eE/YjctByJekB70C7SQdIwHRH3gGvC3uz4PKhUvhRRFIwyPvSBWESwgUwhcv6J9srwJtU61G83HKJAjXAk75A4SLTAKGMfOd3ZBmv1zINOD/SrWbRqOg9oDSbIcNbnLss8wA0Rca7oq3azomo+iWFhGc4QEEy35EO9mO62UhJal6HHKaC1zD2NpZWIU75PxXdehCp4JyeE+M9LXX2PNYQKPYn1zzX80Du57VtzqLRRK/r+LUR2Q09TzRiMUUxiccNr+tMuDOI9A2QdVwiAnS6RSkoHIdFUG5nJuxUru/UKQJ4Dk0upoS3rinFxegNA27LFLwTxbE2Sg3AUW4meE/4CF3vlajwnrEaLgOKjbJn9LpUQgcNkchqeLB9AMAqIOu4UHDRGE1Z867GTuUQCAn544N8ZkM+OVB3pZpaqJPA5+R7ztq/CDZmL3/38AMAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-5/light.png":
+/*!********************************************!*\
+  !*** ./src/button-presets/btn-5/light.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAA1NJREFUSEutl+FVFUEMhXMrECoQKgAqECoQKwArUCsQKxAqEDuACsQKhAqEDrCCeL45yZ7svtl9K8f5BW9nJsnNzU1G9sLl7qdm9s3MjiQ9vuQarTnk7ndmdifpIve7O39/NrMTSXxvy92vzexZ0sdtd681TmSvzWxX0nMY2TDu7sdm9sPMbiWBzOJaazwNfZJ0uWCcqM/M7J2km3827u7nZvbGzDCUUe6Z2W8ze5S0H8aJEkdOM+fu7mb2JIn9mYad4MYXSffVoY3II2d4z0byWWHeWcqluxPtjSQQIP8YJg2HZvY+f08HesY5AIEOcEDS0Tb4et8nhr9LAtHR6uY8DqYD+wVWHAMVICca4AUhCEnE3wvcGKMUu4bZt0g4dz/MPAUXvpoZDuR6CITyf5yAbC239XwPnWY8cgXJIBCejkSj1PSf2HNd92DEzKhrUIEj5HfEdncHJXSBEoR8l2kciDD8KjzkYxOUiBj4MHw8ZWyNqOzFAciaCGQJsp17znFugD3yjBNEQGQX8RslBtTI6KhUZoiWuUYRTyKAVEDubZWwJuc4Qp4HJNYwP+SYNC46vI1w5O2tmQ2MX2k8o190WtGdqOlcP7NRuHvTdEmrZLiUGQT8VTU++EB/yHWLcciRROPDgyQOQzbk8kVCE2cJBE3IuypwzTglMGhx6HcrNXeHYAcviDy72yAwUY5VI+7X5nwV0wvsSdShC86KzKRW94qcbpXImXLL/t+ISslmg6r7a50D1YdQoGEYSNL1utKMYcSKeyrk8Ar+UONXGVyVV0qK9YTQpDxGrhAJSLnRFieopWHuoC/UdkwqktgtHWkcKYXhl3UeKzlEj/GawzjC31TFfYxOlCqXQ1wMM2CM1DDUknualI/kdQphbD6TdBXMb87FlDOnNbRUUHvO8wF/Q2C6lvp5TiAjdYs0EAHOUDqQiyjp50M3LE1mNBF1CVcgrqPP7CAwF/rknmEiqiNZ7umNUannI8PRLJjHZ0fiUMuLMuHWkWyj5nvGgROmDq0voO5pdb5Ysm+3kpK0O0EAktFOR7lf1TDKRDuUWu/F0tu3lJ61xnvzeO/FkvP9f32xUGJMJsNctvBWwykeF0Pa5qJfFfmMjMINDDGPdet4W0X8BZR0ASWWO1BSAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-6/dark.png":
+/*!*******************************************!*\
+  !*** ./src/button-presets/btn-6/dark.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAAsVJREFUSEu1l41x00AQhd+rgKSCOB2ECggVABUQKiBUAKmApAJIBSEVkFQQqIDQQahgmU9z51nbkk4SZmc8Gtune7c/7+2eNdEi4kTSW0k8D8qzvn0n6YPtHxO365a5tTgiziV9LIB1+R9Jz7befWP7W2u//P8geES8lvRZ0koSYGzMB+9uiue/JX2SdGf7cQ7woOcRwYZ4i10BYPspIgj39wJ8Lemc3+eC1vU7nkfE15Lbn5LOch4jAs9fSbq2fbYUtBc8eQzwafaqpIFw39s+/VfgjbCnzcnjyXY4I4KKfiHpeEl++w67DntEUDBHkp5vUyYiKLpfkm5tU4h7sQ680InKvrBNsW1YRJDfL4XLl3tBrjyPiFqxq77qTbXw0jbh34u5KNfDWAX/T3DC+F7SoELtE7w4e0AE8byrYttjage1EJcr28jtYispDtuHgCOX5Br1GrSICEmPto+XIic6C2cBZ9OmcCTle2cbFZxtSStmg1euwwyEZpamJ7p2h66eE/YjctByJekB70C7SQdIwHRH3gGvC3uz4PKhUvhRRFIwyPvSBWESwgUwhcv6J9srwJtU61G83HKJAjXAk75A4SLTAKGMfOd3ZBmv1zINOD/SrWbRqOg9oDSbIcNbnLss8wA0Rca7oq3azomo+iWFhGc4QEEy35EO9mO62UhJal6HHKaC1zD2NpZWIU75PxXdehCp4JyeE+M9LXX2PNYQKPYn1zzX80Du57VtzqLRRK/r+LUR2Q09TzRiMUUxiccNr+tMuDOI9A2QdVwiAnS6RSkoHIdFUG5nJuxUru/UKQJ4Dk0upoS3rinFxegNA27LFLwTxbE2Sg3AUW4meE/4CF3vlajwnrEaLgOKjbJn9LpUQgcNkchqeLB9AMAqIOu4UHDRGE1Z867GTuUQCAn544N8ZkM+OVB3pZpaqJPA5+R7ztq/CDZmL3/38AMAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-6/light.png":
+/*!********************************************!*\
+  !*** ./src/button-presets/btn-6/light.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAABHNCSVQICAgIfAhkiAAAA1NJREFUSEutl+FVFUEMhXMrECoQKgAqECoQKwArUCsQKxAqEDuACsQKhAqEDrCCeL45yZ7svtl9K8f5BW9nJsnNzU1G9sLl7qdm9s3MjiQ9vuQarTnk7ndmdifpIve7O39/NrMTSXxvy92vzexZ0sdtd681TmSvzWxX0nMY2TDu7sdm9sPMbiWBzOJaazwNfZJ0uWCcqM/M7J2km3827u7nZvbGzDCUUe6Z2W8ze5S0H8aJEkdOM+fu7mb2JIn9mYad4MYXSffVoY3II2d4z0byWWHeWcqluxPtjSQQIP8YJg2HZvY+f08HesY5AIEOcEDS0Tb4et8nhr9LAtHR6uY8DqYD+wVWHAMVICca4AUhCEnE3wvcGKMUu4bZt0g4dz/MPAUXvpoZDuR6CITyf5yAbC239XwPnWY8cgXJIBCejkSj1PSf2HNd92DEzKhrUIEj5HfEdncHJXSBEoR8l2kciDD8KjzkYxOUiBj4MHw8ZWyNqOzFAciaCGQJsp17znFugD3yjBNEQGQX8RslBtTI6KhUZoiWuUYRTyKAVEDubZWwJuc4Qp4HJNYwP+SYNC46vI1w5O2tmQ2MX2k8o190WtGdqOlcP7NRuHvTdEmrZLiUGQT8VTU++EB/yHWLcciRROPDgyQOQzbk8kVCE2cJBE3IuypwzTglMGhx6HcrNXeHYAcviDy72yAwUY5VI+7X5nwV0wvsSdShC86KzKRW94qcbpXImXLL/t+ISslmg6r7a50D1YdQoGEYSNL1utKMYcSKeyrk8Ar+UONXGVyVV0qK9YTQpDxGrhAJSLnRFieopWHuoC/UdkwqktgtHWkcKYXhl3UeKzlEj/GawzjC31TFfYxOlCqXQ1wMM2CM1DDUknualI/kdQphbD6TdBXMb87FlDOnNbRUUHvO8wF/Q2C6lvp5TiAjdYs0EAHOUDqQiyjp50M3LE1mNBF1CVcgrqPP7CAwF/rknmEiqiNZ7umNUannI8PRLJjHZ0fiUMuLMuHWkWyj5nvGgROmDq0voO5pdb5Ysm+3kpK0O0EAktFOR7lf1TDKRDuUWu/F0tu3lJ61xnvzeO/FkvP9f32xUGJMJsNctvBWwykeF0Pa5qJfFfmMjMINDDGPdet4W0X8BZR0ASWWO1BSAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-7/dark.png":
+/*!*******************************************!*\
+  !*** ./src/button-presets/btn-7/dark.png ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "./src/button-presets/btn-7/light.png":
+/*!********************************************!*\
+  !*** ./src/button-presets/btn-7/light.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -1065,20 +1356,20 @@ var Image_Choose = /*#__PURE__*/function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Edit */ "./src/Edit.js");
-/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logo.svg */ "./src/logo.svg");
-/* harmony import */ var _theme_switch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./theme-switch */ "./src/theme-switch/index.js");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Button */ "./src/Button.js");
+/* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Edit */ "./src/Edit.js");
+/* harmony import */ var _logo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logo.svg */ "./src/logo.svg");
+/* harmony import */ var _theme_switch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-switch */ "./src/theme-switch/index.js");
+
+
+
+
 var __ = wp.i18n.__;
 var registerBlockType = wp.blocks.registerBlockType;
-
-
-/**---- Editor Theme Switch ----*/
-
-
-registerBlockType('wp-dark-mode/switcher', {
+registerBlockType('wp-dark-mode-block/dark-mode-switch', {
   title: __('Dark Mode Switch', 'wp-dark-mode'),
   icon: {
-    src: _logo_svg__WEBPACK_IMPORTED_MODULE_1__["ReactComponent"]
+    src: _logo_svg__WEBPACK_IMPORTED_MODULE_2__["ReactComponent"]
   },
   category: 'common',
   attributes: {
@@ -1093,7 +1384,7 @@ registerBlockType('wp-dark-mode/switcher', {
   supports: {
     align: ['center', 'wide', 'full']
   },
-  edit: _Edit__WEBPACK_IMPORTED_MODULE_0__["default"],
+  edit: _Edit__WEBPACK_IMPORTED_MODULE_1__["default"],
   save: function save(_ref) {
     var attributes = _ref.attributes;
     var alignment = attributes.alignment,
@@ -1102,7 +1393,9 @@ registerBlockType('wp-dark-mode/switcher', {
       style: {
         textAlign: alignment
       }
-    }, "[wp_dark_mode style=".concat(style, "]"));
+    }, wp.element.createElement(_Button__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      style: attributes.style
+    }));
   }
 });
 
@@ -1530,17 +1823,6 @@ var update = api(content, options);
 
 
 module.exports = content.locals || {};
-
-/***/ }),
-
-/***/ "@babel/runtime/regenerator":
-/*!*************************************!*\
-  !*** external "regeneratorRuntime" ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["regeneratorRuntime"]; }());
 
 /***/ }),
 

@@ -198,7 +198,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 
 					'contrast' => [
 						'name'    => 'contrast',
-						'label'   => __( 'Brightness :', 'wp-dark-mode' ),
+						'label'   => __( 'Contrast :', 'wp-dark-mode' ),
 						'desc'    => __( 'Set the contrast of the dark mode.', 'wp-dark-mode' ),
 						'type'    => 'slider',
 						'default' => 90,
