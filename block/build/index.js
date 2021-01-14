@@ -1179,7 +1179,7 @@ var Image_Choose = /*#__PURE__*/function (_Component) {
             _this2.props.onChange(val);
           }
         }), wp.element.createElement("img", {
-          src: wpDarkModeAdmin.pluginUrl + 'assets/images/button-presets/' + image,
+          src: wpDarkMode.pluginUrl + 'assets/images/button-presets/' + image,
           className: "image-choose-img"
         }));
       }));
@@ -1669,7 +1669,7 @@ var Palette = /*#__PURE__*/function (_Component) {
       var img = document.getElementById('wpDarkModeThemeSwitchImg');
       elm.classList.remove('wp-dark-mode-theme-defaul', 'wp-dark-mode-theme-darkmode', 'wp-dark-mode-theme-chathams', 'wp-dark-mode-theme-pumpkin', 'wp-dark-mode-theme-mustard', 'wp-dark-mode-theme-concord');
       elm.classList.add("wp-dark-mode-theme-".concat(type));
-      img.setAttribute('src', "".concat(wpDarkModeAdmin.pluginUrl, "/block/build/images/").concat(type, ".png"));
+      img.setAttribute('src', "".concat(wpDarkMode.pluginUrl, "/block/build/images/").concat(type, ".png"));
       this.setState({
         type: type
       });
@@ -1688,7 +1688,7 @@ var Palette = /*#__PURE__*/function (_Component) {
         mustard: 'Mustard Seed',
         concord: 'Concord Jam'
       };
-      var is_pro = wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active;
+      var is_pro = wpDarkMode.is_pro_active || wpDarkMode.is_ultimate_active;
       return wp.element.createElement("div", null, Object.entries(labels).map(function (_ref, i) {
         var _ref2 = _slicedToArray(_ref, 2),
             key = _ref2[0],
@@ -1706,7 +1706,7 @@ var Palette = /*#__PURE__*/function (_Component) {
             _this2.handleColorPalegtte(key);
           }
         }, wp.element.createElement("img", {
-          src: "".concat(wpDarkModeAdmin.pluginUrl, "/block/build/images/").concat(key, ".png"),
+          src: "".concat(wpDarkMode.pluginUrl, "/block/build/images/").concat(key, ".png"),
           alt: label
         }), wp.element.createElement("span", null, label), type == key ? wp.element.createElement("span", {
           className: "tick"
@@ -1779,7 +1779,7 @@ function appendThemeSwitch() {
   var node = document.querySelector('.edit-post-header__toolbar');
   var newElem = document.createElement('div');
   newElem.classList.add('wpdm-theme-switch-wrapper');
-  var html = "<div id=\"wpDarkModeThemeSwitch\"><img id=\"wpDarkModeThemeSwitchImg\" src=\"".concat(wpDarkModeAdmin.pluginUrl, "/block/build/images/default.png\" /> <i class=\"wpdm-arrow down\"></i> </div>");
+  var html = "<div id=\"wpDarkModeThemeSwitch\"><img id=\"wpDarkModeThemeSwitchImg\" src=\"".concat(wpDarkMode.pluginUrl, "/block/build/images/default.png\" /> <i class=\"wpdm-arrow down\"></i> </div>");
   html += "<div id=\"wpdmColorPalettesContainer\"></div> ";
   newElem.innerHTML = html;
   node.insertBefore(newElem, node.childNodes[0]);

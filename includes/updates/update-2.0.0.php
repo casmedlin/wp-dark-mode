@@ -1,6 +1,6 @@
 <?php
 
-class WP_Dark_Mode_Update_1_3_6 {
+class WP_Dark_Mode_Update_2_0_0 {
 
 	private static $instance = null;
 
@@ -54,6 +54,17 @@ class WP_Dark_Mode_Update_1_3_6 {
 		}
 
 		update_option( 'wp_dark_mode_includes_excludes', $settings );
+	}
+
+	private function update_advanced_settings() {
+		$general_settings  = get_option( 'wp_dark_mode_general', [] );
+		$advanced_settings = get_option( 'wp_dark_mode_advanced', [] );
+
+		$default_setting = $general_settings['default_mode'];
+
+		$advanced_settings['default_mode'] = $default_setting;
+
+		update_option( 'wp_dark_mode_advanced', $advanced_settings );
 	}
 
 	public static function instance() {

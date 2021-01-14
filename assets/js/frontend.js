@@ -4,8 +4,8 @@
 
         init: () => {
 
-            //return if wpDarkModeFrontend is undefined or the page is excluded
-            if (wpDarkModeFrontend.is_excluded) {
+            //return if wpDarkMode is undefined or the page is excluded
+            if (wpDarkMode.is_excluded) {
                 return;
             }
 
@@ -15,7 +15,7 @@
             }
 
             //handle includes
-            if ('' !== wpDarkModeFrontend.includes) {
+            if ('' !== wpDarkMode.includes) {
                 app.handleIncludes();
             }
 
@@ -62,7 +62,7 @@
             //const is_saved = sessionStorage.getItem('wp_dark_mode_frontend');
             const is_saved = localStorage.getItem('wp_dark_mode_active');
 
-            if ((is_saved && is_saved != 0) || (!is_saved && wpDarkModeFrontend.default_mode)) {
+            if ((is_saved && is_saved != 0) || (!is_saved && wpDarkMode.default_mode)) {
                 document.querySelector('html').classList.add('wp-dark-mode-active');
 
                 app.enable();
@@ -88,7 +88,7 @@
          * enable the darkmode
          */
         enable: () => {
-            const {config: {brightness, contrast, sepia}} = wpDarkModeFrontend;
+            const {config: {brightness, contrast, sepia}} = wpDarkMode;
 
             DarkReader.enable({
                 brightness,
@@ -127,11 +127,11 @@
 
         handleExcludes: function () {
 
-            if ('' === wpDarkModeFrontend.excludes) {
+            if ('' === wpDarkMode.excludes) {
                 return;
             }
 
-            const elements = document.querySelectorAll(wpDarkModeFrontend.excludes);
+            const elements = document.querySelectorAll(wpDarkMode.excludes);
 
             elements.forEach((element) => {
                 element.classList.add('wp-dark-mode-ignore');
@@ -145,7 +145,7 @@
 
         handleIncludes: function () {
 
-            const elements = document.querySelectorAll(wpDarkModeFrontend.includes);
+            const elements = document.querySelectorAll(wpDarkMode.includes);
 
             elements.forEach((element) => {
                 element.classList.add('wp-dark-mode-include');

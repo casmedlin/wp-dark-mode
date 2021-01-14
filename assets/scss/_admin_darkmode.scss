@@ -1,42 +1,44 @@
 /*-------------- admin bar switcher --------------*/
-#wp-admin-bar-wp-dark-mode .ab-item{
-  display: flex !important;
-  align-items: center;
-}
+#wp-admin-bar-wp-dark-mode {
+  .ab-item {
+    display: flex !important;
+    align-items: center;
+  }
 
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher .modes {
-  margin-top: -1px;
-}
+  .wp-dark-mode-switcher {
+    label {
+      position: relative !important;
+      width: 100px !important;
+    }
 
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher .modes .light {
-  color: #000;
-}
+    .modes {
+      margin-top: -1px;
+      width: 74% !important;
+      position: absolute !important;
 
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher label {
-  position: relative !important;
-  width: 100px !important;
-}
+      .light {
+        color: #000;
+      }
 
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher label,
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher .toggle {
-  height: 26px !important;
-  border-radius: 100px !important;
-}
+      .dark {
+        color: #555;
+      }
+    }
 
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher .toggle {
-  position: absolute !important;
-  width: 50% !important;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, .15) !important;
-  transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-}
+    label, .toggle {
+      height: 26px !important;
+      border-radius: 100px !important;
+    }
 
-#wp-admin-bar-wp-dark-mode .wp-dark-mode-switcher .modes {
-  width: 74% !important;
-  position: absolute !important;
-}
+    .toggle {
+      position: absolute !important;
+      width: 50% !important;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, .15) !important;
+      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
 
-.wp-dark-mode-switcher .modes .dark {
-  color: #555;
+  }
+
 }
 
 
@@ -64,17 +66,17 @@ html.wp-dark-mode-active #wpbody {
 
 html.wp-dark-mode-active #wpcontent {
   background: #10161E !important;
-}
 
-html.wp-dark-mode-active #wpcontent #wpbody .delete,
-html.wp-dark-mode-active #wpcontent #wpbody .submitdelete {
-  color: red !important;
-}
+  .delete, .submitdelete {
+    color: red !important;
+  }
 
-html.wp-dark-mode-active #wpcontent #wpbody .notice, html.wp-dark-mode-active #wpcontent #wpbody .notice * {
-  background: #252525 !important;
-}
+  .notice, .notice * {
+    background: #252525 !important;
+  }
 
-html.wp-dark-mode-active #wpcontent #wpbody #screen-meta * {
-  background: #32373c !important;
+  #screen-meta * {
+    background: #32373c !important;
+  }
+
 }

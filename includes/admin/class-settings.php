@@ -56,26 +56,23 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'<i class="dashicons dashicons-admin-generic" ></i>' ),
 				),
 				array(
+					'id'    => 'wp_dark_mode_color',
+					'title' => sprintf( __( '%s <span>Color Settings</span>', 'wp-dark-mode' ),
+						'<i class="dashicons dashicons-admin-customizer" ></i>' ),
+				),
+
+				array(
 					'id'    => 'wp_dark_mode_switch',
 					'title' => sprintf( __( '%s <span>Switch Settings</span>', 'wp-dark-mode' ),
 						'<i class="dashicons dashicons-slides" ></i>' ),
 				),
-				array(
-					'id'    => 'wp_dark_mode_display',
-					'title' => sprintf( __( '%s <span>Display Settings</span>', 'wp-dark-mode' ),
-						'<i class="dashicons dashicons-welcome-view-site" ></i>' ),
-				),
+
 				array(
 					'id'    => 'wp_dark_mode_includes_excludes',
 					'title' => sprintf( __( '%s <span>Includes/ Excludes</span>', 'wp-dark-mode' ),
 						'<i class="dashicons dashicons-layout" ></i>' ),
 				),
 
-				array(
-					'id'    => 'wp_dark_mode_color',
-					'title' => sprintf( __( '%s <span>Color Settings</span>', 'wp-dark-mode' ),
-						'<i class="dashicons dashicons-admin-customizer" ></i>' ),
-				),
 				array(
 					'id'    => 'wp_dark_mode_image_settings',
 					'title' => sprintf( __( '%s <span>Image Settings</span>', 'wp-dark-mode' ),
@@ -181,40 +178,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'type'    => 'select',
 						'options' => $time_range,
 					),
-
-				) ),
-
-				'wp_dark_mode_display'  => apply_filters( 'wp_dark_mode/display_settings', array(
-
-					'brightness' => [
-						'name'    => 'brightness',
-						'label'   => __( 'Brightness :', 'wp-dark-mode' ),
-						'desc'    => __( 'Set the brightness of the dark mode.', 'wp-dark-mode' ),
-						'type'    => 'slider',
-						'default' => 100,
-						'min'     => 0,
-						'max'     => 100,
-					],
-
-					'contrast' => [
-						'name'    => 'contrast',
-						'label'   => __( 'Contrast :', 'wp-dark-mode' ),
-						'desc'    => __( 'Set the contrast of the dark mode.', 'wp-dark-mode' ),
-						'type'    => 'slider',
-						'default' => 90,
-						'min'     => 0,
-						'max'     => 100,
-					],
-
-					'sepia' => [
-						'name'    => 'sepia',
-						'label'   => __( 'Sepia :', 'wp-dark-mode' ),
-						'desc'    => __( 'Set the sepia of the dark mode.', 'wp-dark-mode' ),
-						'type'    => 'slider',
-						'default' => 10,
-						'min'     => 0,
-						'max'     => 100,
-					],
 
 				) ),
 
@@ -364,6 +327,41 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 				) ),
 
 				'wp_dark_mode_color' => apply_filters( 'wp_dark_mode/color_settings', array(
+					'brightness'     => [
+						'name'    => 'brightness',
+						'label'   => __( 'Brightness :', 'wp-dark-mode' ),
+						'desc'    => __( 'Set the brightness of the dark mode.', 'wp-dark-mode' ),
+						'type'    => 'slider',
+						'default' => 100,
+						'min'     => 0,
+						'max'     => 100,
+					],
+					'contrast'       => [
+						'name'    => 'contrast',
+						'label'   => __( 'Contrast :', 'wp-dark-mode' ),
+						'desc'    => __( 'Set the contrast of the dark mode.', 'wp-dark-mode' ),
+						'type'    => 'slider',
+						'default' => 90,
+						'min'     => 0,
+						'max'     => 100,
+					],
+					'sepia'          => [
+						'name'    => 'sepia',
+						'label'   => __( 'Sepia :', 'wp-dark-mode' ),
+						'desc'    => __( 'Set the sepia of the dark mode.', 'wp-dark-mode' ),
+						'type'    => 'slider',
+						'default' => 10,
+						'min'     => 0,
+						'max'     => 100,
+					],
+					'filter_preview' => [
+						'name'    => 'filter_preview',
+						'label'   => __( 'Filter Preview :', 'wp-dark-mode' ),
+						'desc'    => __( 'Demo Preview of the filter settings.', 'wp-dark-mode' ),
+						'default' => [ $this, 'filter_preview' ],
+						'type'    => 'cb_function',
+					],
+
 					'enable_preset' => array(
 						'name'    => 'enable_preset',
 						'default' => 'on',
@@ -371,7 +369,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'desc'    => __( 'Select the predefined darkmode preset colors.', 'wp-dark-mode' ),
 						'type'    => 'switcher',
 					),
-
 					'color_preset' => array(
 						'name'    => 'color_preset',
 						'default' => '0',
@@ -392,7 +389,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 							'10' => WP_DARK_MODE_ASSETS . '/images/color-presets/11.svg',
 						],
 					),
-
 					'customize_colors' => array(
 						'name'    => 'customize_colors',
 						'default' => 'off',
@@ -400,7 +396,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'desc'    => __( 'Customize the darkmode background, text and link colors.', 'wp-dark-mode' ),
 						'type'    => 'switcher',
 					),
-
 					'darkmode_bg_color' => array(
 						'name'    => 'darkmode_bg_color',
 						'default' => '',
@@ -408,7 +403,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'desc'    => __( 'Select the background color when the dark mode is on.', 'wp-dark-mode' ),
 						'type'    => 'color',
 					),
-
 					'darkmode_text_color' => array(
 						'name'    => 'darkmode_text_color',
 						'default' => '',
@@ -416,7 +410,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'desc'    => __( 'Select the text color when the dark mode is on.', 'wp-dark-mode' ),
 						'type'    => 'color',
 					),
-
 					'darkmode_links_color' => array(
 						'name'    => 'darkmode_link_color',
 						'default' => '',
@@ -454,6 +447,10 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 			//initialize them
 			self::$settings_api->admin_init();
 		}
+
+		public function filter_preview(){
+		    wp_dark_mode()->get_template('filter-preview');
+        }
 
 		public function specific_categories() {
 

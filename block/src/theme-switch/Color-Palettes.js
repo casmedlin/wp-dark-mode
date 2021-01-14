@@ -16,7 +16,7 @@ class Palette extends Component {
         elm.classList.remove('wp-dark-mode-theme-defaul', 'wp-dark-mode-theme-darkmode', 'wp-dark-mode-theme-chathams', 'wp-dark-mode-theme-pumpkin', 'wp-dark-mode-theme-mustard', 'wp-dark-mode-theme-concord');
         elm.classList.add(`wp-dark-mode-theme-${type}`);
 
-        img.setAttribute('src', `${wpDarkModeAdmin.pluginUrl}/block/build/images/${type}.png`);
+        img.setAttribute('src', `${wpDarkMode.pluginUrl}/block/build/images/${type}.png`);
 
         this.setState({type: type});
     }
@@ -33,7 +33,7 @@ class Palette extends Component {
             concord: 'Concord Jam',
         };
 
-        const is_pro = wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active;
+        const is_pro = wpDarkMode.is_pro_active || wpDarkMode.is_ultimate_active;
 
         return (
             <div>
@@ -51,7 +51,7 @@ class Palette extends Component {
                             this.handleColorPalegtte(key)
                         }}>
 
-                        <img src={`${wpDarkModeAdmin.pluginUrl}/block/build/images/${key}.png`} alt={label}/>
+                        <img src={`${wpDarkMode.pluginUrl}/block/build/images/${key}.png`} alt={label}/>
                         <span>{label}</span>
                         {type == key ? <span className='tick'>✓</span> : ''}
 

@@ -190,9 +190,6 @@
     }
 
     var throwCORSError = function (url) {
-
-        return;
-
         return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2, Promise.reject(new Error([
@@ -2699,7 +2696,7 @@
                     return;
                 }
 
-                if ('' !== wpDarkModeFrontend.includes) {
+                if ('' !== wpDarkMode.includes) {
 
                     if (!element.classList.contains('wp-dark-mode-include')) {
                         return;
@@ -2725,7 +2722,7 @@
                         important = _a.important,
                         sourceValue = _a.sourceValue;
 
-                    if (wpDarkModeFrontend.enable_preset) {
+                    if (wpDarkMode.enable_preset) {
 
                         if (wp_dark_mode_is_main_element(element.tagName)) {
 

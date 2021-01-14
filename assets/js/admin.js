@@ -1,3 +1,5 @@
+import './components/slider';
+
 ;(function () {
 
     const app = {
@@ -96,7 +98,16 @@
             /**--- handle promo popups ---**/
             setTimeout(() => document.querySelectorAll('.image-choose-opt.disabled, .form-table tr.disabled').forEach((element) => {
                 element.addEventListener('click', app.showPopup);
-            }), 100)
+            }), 100);
+
+
+            const {brightness, contrast, sepia } = wpDarkMode.config;
+
+            DarkReader.enable({
+                brightness,
+                contrast,
+                sepia
+            });
 
         },
 
@@ -125,7 +136,7 @@
         initDarkmode: function () {
             const is_saved = sessionStorage.getItem('wp_dark_mode_admin');
 
-            if (wpDarkModeAdmin.enable_backend && 1 == is_saved && !wpDarkModeAdmin.is_block_editor) {
+            if (wpDarkMode.enable_backend && 1 == is_saved && !wpDarkMode.is_block_editor) {
                 document.querySelector('html').classList.add('wp-dark-mode-active');
                 document.querySelector('.wp-dark-mode-switcher').classList.add('active');
 
@@ -134,7 +145,7 @@
         },
 
         blockSwitches: function () {
-            if (wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active) {
+            if (wpDarkMode.is_pro_active || wpDarkMode.is_ultimate_active) {
                 return;
             }
 
@@ -179,7 +190,7 @@
 
         blockPresets: function () {
 
-            if (wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active) {
+            if (wpDarkMode.is_pro_active || wpDarkMode.is_ultimate_active) {
                 return;
             }
 
@@ -251,7 +262,7 @@
 
             const is_customized = checkBox.checked;
 
-            const isPro = wpDarkModeAdmin.is_pro_active || wpDarkModeAdmin.is_ultimate_active;
+            const isPro = wpDarkMode.is_pro_active || wpDarkMode.is_ultimate_active;
 
             if (isPro && is_customized) {
                 document.querySelectorAll('.darkmode_bg_color, .darkmode_text_color, .darkmode_link_color').forEach((element) => {
@@ -272,8 +283,16 @@
             }
 
             if (checkBox.checked) {
+                document.querySelector('.brightness').classList.add('hidden');
+                document.querySelector('.contrast').classList.add('hidden');
+                document.querySelector('.sepia').classList.add('hidden');
+
                 document.querySelector('.color_preset').classList.remove('hidden');
             } else {
+                document.querySelector('.brightness').classList.remove('hidden');
+                document.querySelector('.contrast').classList.remove('hidden');
+                document.querySelector('.sepia').classList.remove('hidden');
+
                 document.querySelector('.color_preset').classList.add('hidden');
             }
         },

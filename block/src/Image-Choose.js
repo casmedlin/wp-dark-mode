@@ -38,7 +38,7 @@ class Image_Choose extends Component {
 
                                 }}
                             />
-                            <img src={wpDarkModeAdmin.pluginUrl + 'assets/images/button-presets/' + image} className="image-choose-img"/>
+                            <img src={wpDarkMode.pluginUrl + 'assets/images/button-presets/' + image} className="image-choose-img"/>
                         </label>
                     )
                 })}

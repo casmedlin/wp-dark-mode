@@ -155,7 +155,7 @@ export const reload = done => {
 //watch changes
 export const watch = () => {
     gulp.watch('assets/scss/**/*.scss', css);
-    gulp.watch(paths.js.src, gulp.series(js, reload));
+    gulp.watch(['assets/js/admin.js','assets/js/frontend.js','assets/js/components/**/*'], gulp.series(js, reload));
     gulp.watch('**/*.php', reload);
 };
 

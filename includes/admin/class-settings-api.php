@@ -35,9 +35,7 @@ if ( ! class_exists( 'WPPOOL_Settings_API' ) ) {
 
 			wp_enqueue_script( 'jquery-ui-slider' );
 			$wp_scripts = wp_scripts();
-			wp_enqueue_style( 'wp-radio-jquery-ui-css',
-				'http://ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-core']->ver
-				. '/themes/smoothness/jquery-ui.css' );
+			wp_enqueue_style( 'wp-radio-jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/' . $wp_scripts->registered['jquery-ui-core']->ver . '/themes/smoothness/jquery-ui.css' );
 		}
 
 		/**
@@ -655,8 +653,7 @@ if ( ! class_exists( 'WPPOOL_Settings_API' ) ) {
 		 *
 		 * This code uses localstorage for displaying active tabs
 		 */
-		function script() {
-			?>
+		function script() { ?>
             <script>
                 jQuery(document).ready(function ($) {
                     $(".wppool-slider").each(function () {
@@ -668,6 +665,7 @@ if ( ! class_exists( 'WPPOOL_Settings_API' ) ) {
 
                         $slider.slider({
                             range: 'min',
+                            step: 5,
                             min,
                             max,
                             value,

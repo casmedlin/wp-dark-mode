@@ -71,7 +71,13 @@
   }
 }
 
+.wp-dark-mode-ignore {
+  binding: none;
+}
+
 @import "admin_darkmode";
+@import "components/filter-preview";
+
 @import "./components/promo";
 @import "./components/settings";
 @import "./components/notice";
