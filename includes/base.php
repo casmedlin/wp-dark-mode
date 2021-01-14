@@ -178,10 +178,6 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 			/** load gutenberg block */
 			include_once WP_DARK_MODE_PATH . '/block/plugin.php';
 
-			if ( ! is_admin() ) {
-				include_once WP_DARK_MODE_INCLUDES . '/class-theme-supports.php';
-			}
-
 			//admin includes
 			if ( is_admin() ) {
 				require WP_DARK_MODE_INCLUDES . '/admin/class-admin.php';
