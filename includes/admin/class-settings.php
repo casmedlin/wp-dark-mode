@@ -356,7 +356,8 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 					],
 					'filter_preview' => [
 						'name'    => 'filter_preview',
-						'label'   => __( 'Filter Preview :', 'wp-dark-mode' ),
+						'class'   => wp_dark_mode()->is_ultimate_active() ? 'active filter_preview' : '',
+						'label'   => __( 'Preview :', 'wp-dark-mode' ),
 						'desc'    => __( 'Demo Preview of the filter settings.', 'wp-dark-mode' ),
 						'default' => [ $this, 'filter_preview' ],
 						'type'    => 'cb_function',

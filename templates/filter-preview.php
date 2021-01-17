@@ -1,12 +1,35 @@
-<div class="filter-preview wp-dark-mode-include">
-    <h1 class="wp-dark-mode-include">Dark Mode. Go all in on lights out.</h1>
+<section id="hero" class="hero-banner filter-preview wp-dark-mode-include">
 
-    <p class="wp-dark-mode-include">Help your website visitors spend more time and an eye-pleasing reading experience. Personal preference rules always king. WP Dark Mode can be a game-changer for your website.</p>
+        <ul class="navbar_nav wp-dark-mode-include">
 
-    <button class="button wp-dark-mode-include">Install Now Free</button>
+            <li><a href="#!" class="wp-dark-mode-include">Home</a></li>
 
-    <h1 class="big_heading">Doing it all, In all new ways.</h1>
-    <h4>Experience remarkable WordPress products with a new level of power, beauty, and human-centered designs. Think you know WordPress products? Think Deeper!</h4>
+            <li><a href="#!" class="wp-dark-mode-include">Features</a></li>
 
-    <a href="" class="button button-primary button-large">Our Products</a>
-</div>
+            <li><a href="#!" class="wp-dark-mode-include">Pricing</a></li>
+
+            <li><a href="#!" class="wp-dark-mode-include">Contact</a></li>
+
+        </ul>
+
+    <div class="small-element wp-dark-mode-include"></div>
+    <div class="container wp-dark-mode-include">
+        <div class="row wp-dark-mode-include">
+            <div class="col-xl-6 wp-dark-mode-include">
+                <div class="hero-content wp-dark-mode-include">
+                    <h1 class="text-white wp-dark-mode-include">Doing it all,<span>In all new ways.</span></h1>
+                    <p class="wp-dark-mode-include">
+                        Experience remarkable WordPress products with a new level of power, beauty, and human-centered designs.
+                        Think you know WordPress products? Think Deeper!
+                    </p>
+                    <a class="hero-btn  wp-dark-mode-include" href="https://wppool.dev/" target="_blank">Our Products</a>
+                </div>
+            </div>
+            <div class="col-xl-4 wp-dark-mode-include">
+                <div class="banner_image wp-dark-mode-include">
+                    <img src="https://wppool.dev/wp-content/themes/wppool/assets/img/wppool-image/hero_banner.svg" class="wp-dark-mode-include">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

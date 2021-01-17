@@ -18,6 +18,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 		public function __construct() {
 			add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
+
 		}
 
 		/**
@@ -33,6 +34,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 				return false;
 			}
 
+
 			/** wp-dark-mode frontend css */
 			wp_enqueue_style( 'wp-dark-mode-frontend', WP_DARK_MODE_ASSETS . '/css/frontend.css', false, WP_DARK_MODE_VERSION );
 
@@ -42,7 +44,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 			if ( ! isset( $_REQUEST['elementor-preview'] ) ) {
 				/** dark-reader js */
-				wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26', true );
+				//wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26', true );
 			}
 
 			$this->frontend_localize();
@@ -111,8 +113,11 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 			wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
 			wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
-			wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26', true );
 
+			if(wp_dark_mode()->is_ultimate_active()) {
+				wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26',
+					true );
+			}
 
 			$cm_settings = [];
 			$cm_settings['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
@@ -142,7 +147,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 				'pro_version' => defined( 'WP_DARK_MODE_PRO_VERSION' ) ? WP_DARK_MODE_PRO_VERSION : 0,
 			] );
-
 
 		}
 

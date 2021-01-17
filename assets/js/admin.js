@@ -182,7 +182,10 @@ import './components/slider';
                    .enable_menu_switch, 
                    .switch_menus,
                    .image_settings,
-                   .custom_css
+                   .custom_css,
+                   .brightness,
+                   .contrast,
+                   .sepia
                    `).forEach((element) => {
                 element.classList.add('disabled');
             });
@@ -286,12 +289,14 @@ import './components/slider';
                 document.querySelector('.brightness').classList.add('hidden');
                 document.querySelector('.contrast').classList.add('hidden');
                 document.querySelector('.sepia').classList.add('hidden');
+                document.querySelector('.filter_preview').classList.add('hidden');
 
                 document.querySelector('.color_preset').classList.remove('hidden');
             } else {
                 document.querySelector('.brightness').classList.remove('hidden');
                 document.querySelector('.contrast').classList.remove('hidden');
                 document.querySelector('.sepia').classList.remove('hidden');
+                document.querySelector('.filter_preview').classList.remove('hidden');
 
                 document.querySelector('.color_preset').classList.add('hidden');
             }
