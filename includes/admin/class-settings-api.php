@@ -994,7 +994,7 @@ if ( ! class_exists( 'WPPOOL_Settings_API' ) ) {
                 }
 
                 .wppool-settings .image-choose-opt.active img {
-                    border: 2px solid blueviolet;
+                    border: 5px solid deeppink;
 
                 }
 

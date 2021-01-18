@@ -116,7 +116,7 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 			if ( get_option( 'wp_dark_mode_do_activation_redirect', false ) ) {
 				delete_option( 'wp_dark_mode_do_activation_redirect' );
 
-				wp_redirect( admin_url( 'options-general.php?page=wp-dark-mode-settings' ) );
+				wp_redirect( admin_url( 'admin.php?page=wp-dark-mode-settings' ) );
 			}
 		}
 
@@ -206,7 +206,7 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 * @return array
 		 */
 		public function plugin_action_links( $links ) {
-			$links[] = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'options-general.php?page=wp-dark-mode-settings' ),
+			$links[] = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'admin.php?page=wp-dark-mode-settings' ),
 				__( 'Settings', 'wp-dark-mode' ) );
 
 			if ( ! $this->is_pro_active() && ! $this->is_ultimate_active() ) {

@@ -137,22 +137,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 //						'type'    => 'switcher',
 //					),
 
-					'specific_category' => array(
-						'name'    => 'specific_category',
-						'default' => 'off',
-						'label'   => __( 'Specific Category', 'wp-dark-mode' ),
-						'desc'    => __( 'Apply dark mode only on specific category post.', 'wp-dark-mode' ),
-						'type'    => 'switcher',
-					),
-
-					'specific_categories'   => array(
-						'name'    => 'specific_categories',
-						'default' => [$this, 'specific_categories'],
-						'label'   => __( 'Select Category(s)', 'wp-dark-mode' ),
-						'desc'    => __( 'Select the category(s) in which you want to apply the darkmode. Outside of the category the dark mode won\'t be applied.', 'wp-dark-mode' ),
-						'type'    => 'cb_function',
-					),
-
 					'time_based_mode'   => array(
 						'name'    => 'time_based_mode',
 						'default' => 'off',
@@ -182,6 +166,23 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 				) ),
 
 				'wp_dark_mode_includes_excludes' => [
+
+					'specific_category' => array(
+						'name'    => 'specific_category',
+						'default' => 'off',
+						'label'   => __( 'Specific Category', 'wp-dark-mode' ),
+						'desc'    => __( 'Apply dark mode only on specific category post.', 'wp-dark-mode' ),
+						'type'    => 'switcher',
+					),
+
+					'specific_categories'   => array(
+						'name'    => 'specific_categories',
+						'default' => [$this, 'specific_categories'],
+						'label'   => __( 'Select Category(s)', 'wp-dark-mode' ),
+						'desc'    => __( 'Select the category(s) in which you want to apply the darkmode. Outside of the category the dark mode won\'t be applied.', 'wp-dark-mode' ),
+						'type'    => 'cb_function',
+					),
+
 					'includes' => array(
 						'name'    => 'includes',
 						'default' => '',
@@ -457,10 +458,10 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 
 		public function specific_categories() {
 
-			$categories = wp_dark_mode_get_settings('wp_dark_mode_advanced', 'specific_categories', []);
+			$categories = wp_dark_mode_get_settings('wp_dark_mode_includes_excludes', 'specific_categories', []);
 
 			?>
-            <select name="wp_dark_mode_advanced[specific_categories][]" multiple id="wp_dark_mode_advanced[specific_categories]">
+            <select name="wp_dark_mode_includes_excludes[specific_categories][]" multiple id="wp_dark_mode_includes_excludes[specific_categories]">
 				<?php
 
 				$cats = get_terms( 'category', array( 'hide_empty' => false ) );
@@ -482,7 +483,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 			$switch_menus = wp_dark_mode_get_settings('wp_dark_mode_display', 'switch_menus', []);
 
 			?>
-            <select name="wp_dark_mode_display[switch_menus][]" multiple id="wp_dark_mode_display[switch_menus]">
+            <select name="wp_dark_mode_switch[switch_menus][]" multiple id="wp_dark_mode_switch[switch_menus]">
 				<?php
 
 				$menus = get_terms( 'nav_menu', array( 'hide_empty' => false ) );
@@ -504,7 +505,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 			$exclude_pages = wp_dark_mode_exclude_pages();
 
 			?>
-            <select name="wp_dark_mode_display[exclude_pages][]" multiple id="wp_dark_mode_display[exclude_pages]">
+            <select name="wp_dark_mode_includes_excludes[exclude_pages][]" multiple id="wp_dark_mode_includes_excludes[exclude_pages]">
 				<?php
 
 				$pages = get_posts( [

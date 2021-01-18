@@ -72,7 +72,7 @@
         },
 
         handleToggle: function () {
-            
+
             const html = document.querySelector('html');
             html.classList.toggle('wp-dark-mode-active');
 
