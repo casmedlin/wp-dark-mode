@@ -185,9 +185,9 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 					'includes' => array(
 						'name'    => 'includes',
 						'default' => '',
-						'label'   => __( 'Includes Elements', 'wp-dark-mode-pro' ),
+						'label'   => __( 'Includes Elements', 'wp-dark-mode' ),
 						'desc'    => __( 'Add comma separated CSS selectors (classes, ids) to to apply dark mode. Only the elements within the selectors applied by dark mode.',
-							'wp-dark-mode-pro' ),
+							'wp-dark-mode' ),
 						'type'    => 'textarea',
 					),
 
@@ -365,7 +365,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 
 					'enable_preset' => array(
 						'name'    => 'enable_preset',
-						'default' => 'on',
+						'default' => 'off',
 						'label'   => __( 'Want to use color presets?', 'wp-dark-mode' ),
 						'desc'    => __( 'Select the predefined darkmode preset colors.', 'wp-dark-mode' ),
 						'type'    => 'switcher',

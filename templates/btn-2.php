@@ -8,9 +8,9 @@ $dark_text   = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_text_da
 <input type="checkbox" id="wp-dark-mode-switch" class="wp-dark-mode-switch">
 <div class="wp-dark-mode-switcher wp-dark-mode-ignore style-2 <?php echo $is_floating ? "floating $position" : ''; ?>">
 
-    <label for="wp-dark-mode-switch">
-        <div class="toggle"></div>
-        <div class="modes">
+    <label for="wp-dark-mode-switch wp-dark-mode-ignore">
+        <div class="toggle wp-dark-mode-ignore"></div>
+        <div class="modes wp-dark-mode-ignore">
             <p class="light"><?php echo $light_text; ?></p>
             <p class="dark"><?php echo $dark_text; ?></p>
         </div>

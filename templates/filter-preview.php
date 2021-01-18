@@ -1,16 +1,18 @@
+<h2>Filter Settings Demo Preview:</h2>
+
 <section id="hero" class="hero-banner filter-preview wp-dark-mode-include">
 
-        <ul class="navbar_nav wp-dark-mode-include">
+    <ul class="navbar_nav wp-dark-mode-include">
 
-            <li><a href="#!" class="wp-dark-mode-include">Home</a></li>
+        <li><a href="#!" class="wp-dark-mode-include">Home</a></li>
 
-            <li><a href="#!" class="wp-dark-mode-include">Features</a></li>
+        <li><a href="#!" class="wp-dark-mode-include">Features</a></li>
 
-            <li><a href="#!" class="wp-dark-mode-include">Pricing</a></li>
+        <li><a href="#!" class="wp-dark-mode-include">Pricing</a></li>
 
-            <li><a href="#!" class="wp-dark-mode-include">Contact</a></li>
+        <li><a href="#!" class="wp-dark-mode-include">Contact</a></li>
 
-        </ul>
+    </ul>
 
     <div class="small-element wp-dark-mode-include"></div>
     <div class="container wp-dark-mode-include">

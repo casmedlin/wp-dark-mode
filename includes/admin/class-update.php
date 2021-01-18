@@ -10,10 +10,7 @@ class WP_Dark_Mode_Update {
 	 *
 	 * @var array
 	 */
-	private static $upgrades = array(
-		'1.0.9' => 'includes/updates/update-1.0.9.php',
-		'2.0.0' => 'includes/updates/update-2.0.0.php',
-	);
+	private static $upgrades = [ '2.0.0' ];
 
 	public function installed_version() {
 
@@ -47,9 +44,9 @@ class WP_Dark_Mode_Update {
 	 * @return void
 	 */
 	function perform_updates() {
-		foreach ( self::$upgrades as $version => $file ) {
+		foreach ( self::$upgrades as $version ) {
 			if ( version_compare( $this->installed_version(), $version, '<' ) ) {
-				include WP_DARK_MODE_INCLUDES.'/updates/'.$file;
+				include WP_DARK_MODE_INCLUDES . '/updates/update-' . $version . '.php';
 
 				update_option( 'wp_dark_mode_version', $version );
 			}

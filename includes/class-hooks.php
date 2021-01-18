@@ -23,12 +23,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 			add_action( 'wppool_after_settings', [ $this, 'pro_promo' ] );
 
 			//display the dark mode switcher if the dark mode enabled on frontend
-				add_action( 'wp_footer', [ $this, 'display_widget' ] );
-
-			//render the admin bar switch
-			if ( is_admin() && 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ) ) {
-				add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
-			}
+            add_action( 'wp_footer', [ $this, 'display_widget' ] );
 
 			//declare custom color css variables
 			add_action( 'wp_head', [ $this, 'declare_css_variables' ] );
@@ -89,37 +84,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 			}
 
 			return $excludes;
-		}
-
-		/**
-		 * display dark mode switcher button on the admin bar menu
-		 */
-		public function render_admin_switcher_menu() {
-
-			if ( class_exists( 'Dark_mode' ) ) {
-				return;
-			}
-
-			$light_text = wp_dark_mode_get_settings( 'wp_dark_mode_display', 'switch_text_light', 'Light' );
-			$dark_text  = wp_dark_mode_get_settings( 'wp_dark_mode_display', 'switch_text_dark', 'Dark' );
-
-			global $wp_admin_bar;
-			$wp_admin_bar->add_menu( array(
-				'id'    => 'wp-dark-mode',
-				'title' => sprintf( '<input type="checkbox" id="wp-dark-mode-switch" class="wp-dark-mode-switch">
-                            <div class="wp-dark-mode-switcher wp-dark-mode-ignore">
-                            
-                                <label for="wp-dark-mode-switch">
-                                    <div class="toggle"></div>
-                                    <div class="modes">
-                                        <p class="light">%s</p>
-                                        <p class="dark">%s</p>
-                                    </div>
-                                </label>
-                            
-                            </div>', $light_text, $dark_text ),
-				'href'  => '#',
-			) );
 		}
 
 		/**

@@ -140,7 +140,6 @@ tr.filter_preview {
       }
     }
   }
-
 }
 
 .widget {
@@ -283,4 +282,11 @@ tr.filter_preview {
     font-weight: 300;
   }
 
+}
+
+
+html.wp-dark-mode-active {
+  .wppool-switcher div {
+    background: #777 !important;
+  }
 }

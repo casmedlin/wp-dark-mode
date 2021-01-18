@@ -106,6 +106,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 			wp_enqueue_script( 'jquery.syotimer', WP_DARK_MODE_ASSETS . '/vendor/jquery.syotimer.min.js', [ 'jquery' ], '2.1.2', true );
 
 			wp_enqueue_script( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/js/admin.min.js', [ 'wp-util' ], WP_DARK_MODE_VERSION, true );
+			wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26', true );
 
 
 			if ( 'wp-dark-mode_page_wp-dark-mode-settings' == $hook ) {
@@ -113,12 +114,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 				wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
 				wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
-
-				if ( wp_dark_mode()->is_ultimate_active() ) {
-					wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26',
-						true );
-				}
-
 				$cm_settings               = [];
 				$cm_settings['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
 
@@ -126,6 +121,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 				wp_enqueue_style( 'wp-codemirror' );
 			}
 
+			global $current_screen;
 			wp_localize_script( 'wp-dark-mode-admin', 'wpDarkMode', [
 				'pluginUrl'          => WP_DARK_MODE_URL,
 
@@ -137,14 +133,16 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 				'colors'          => wp_dark_mode_color_presets(),
 				'enable_frontend' => wp_dark_mode_enabled(),
-				'includes'        => '.filter-preview',
-				'excludes'        => 'body',
+				//'includes'        => '.filter-preview',
+				'includes'        => '',
+				'excludes'        => '',
 
 				'is_pro_active'      => wp_dark_mode()->is_pro_active(),
 				'is_ultimate_active' => wp_dark_mode()->is_ultimate_active(),
 				'cm_settings'        => $cm_settings ?? '',
 				'is_settings_page'   => 'wp-dark-mode_page_wp-dark-mode-settings' == $hook,
 				'enable_backend'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ),
+				'is_block_editor'   => is_object($current_screen) && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor(),
 
 				'pro_version' => defined( 'WP_DARK_MODE_PRO_VERSION' ) ? WP_DARK_MODE_PRO_VERSION : 0,
 			] );

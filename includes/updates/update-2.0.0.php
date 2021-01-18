@@ -6,6 +6,9 @@ class WP_Dark_Mode_Update_2_0_0 {
 
 	public function __construct() {
 		$this->update_switch_settings();
+		$this->update_includes_excludes();
+		$this->update_advanced_settings();
+		$this->update_color_settings();
 	}
 
 	private function update_switch_settings() {
@@ -30,6 +33,11 @@ class WP_Dark_Mode_Update_2_0_0 {
 
 		foreach ( $keys as $key ) {
 			if ( ! empty( $settings[ $key ] ) ) {
+
+				if ( empty( $settings[ $key ] ) ) {
+					continue;
+				}
+
 				$new_settings[ $key ] = $settings[ $key ];
 			}
 		}
@@ -60,11 +68,28 @@ class WP_Dark_Mode_Update_2_0_0 {
 		$general_settings  = get_option( 'wp_dark_mode_general', [] );
 		$advanced_settings = get_option( 'wp_dark_mode_advanced', [] );
 
-		$default_setting = $general_settings['default_mode'];
+		if ( empty( $advanced_settings ) ) {
+			$advanced_settings = [];
+		}
+
+
+		$default_setting = $general_settings['default_mode'] ?? 'off';
 
 		$advanced_settings['default_mode'] = $default_setting;
 
 		update_option( 'wp_dark_mode_advanced', $advanced_settings );
+	}
+
+	private function update_color_settings() {
+		$color_settings = get_option( 'wp_dark_mode_color', [] );
+		if ( empty( $color_settings ) ) {
+			$color_settings = [];
+		}
+
+		$color_settings['enable_preset'] = 'on';
+
+		update_option( 'wp_dark_mode_color', $color_settings );
+
 	}
 
 	public static function instance() {
@@ -78,4 +103,4 @@ class WP_Dark_Mode_Update_2_0_0 {
 }
 
 
-WP_Dark_Mode_Update_1_0_9::instance();
+WP_Dark_Mode_Update_2_0_0::instance();
