@@ -129,13 +129,13 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'type'    => 'switcher',
 					),
 
-					'remember_darkmode' => array(
-						'name'    => 'remember_darkmode',
-						'default' => 'off',
-						'label'   => __( 'Remember Dark Mode', 'wp-dark-mode' ),
-						'desc'    => __( 'If remember dark mode is on,  browser remembers the user\'s selected mode and shows it to them when they re-open the browser', 'wp-dark-mode' ),
-						'type'    => 'switcher',
-					),
+//					'remember_darkmode' => array(
+//						'name'    => 'remember_darkmode',
+//						'default' => 'off',
+//						'label'   => __( 'Remember Dark Mode', 'wp-dark-mode' ),
+//						'desc'    => __( 'If remember dark mode is on,  browser remembers the user\'s selected mode and shows it to them when they re-open the browser', 'wp-dark-mode' ),
+//						'type'    => 'switcher',
+//					),
 
 					'specific_category' => array(
 						'name'    => 'specific_category',
@@ -356,7 +356,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 					],
 					'filter_preview' => [
 						'name'    => 'filter_preview',
-						'class'   => wp_dark_mode()->is_ultimate_active() ? 'active filter_preview' : '',
+						'class'   => wp_dark_mode()->is_ultimate_active() ? 'active filter_preview' : 'filter_preview',
 						'label'   => __( 'Preview :', 'wp-dark-mode' ),
 						'desc'    => __( 'Demo Preview of the filter settings.', 'wp-dark-mode' ),
 						'default' => [ $this, 'filter_preview' ],

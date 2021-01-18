@@ -101,13 +101,15 @@ import './components/slider';
             }), 100);
 
 
-            const {brightness, contrast, sepia } = wpDarkMode.config;
+            if (wpDarkMode.is_ultimate_active) {
+                const {brightness, contrast, sepia} = wpDarkMode.config;
 
-            DarkReader.enable({
-                brightness,
-                contrast,
-                sepia
-            });
+                DarkReader.enable({
+                    brightness,
+                    contrast,
+                    sepia
+                });
+            }
 
         },
 

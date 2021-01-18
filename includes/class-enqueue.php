@@ -44,7 +44,8 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 			if ( ! isset( $_REQUEST['elementor-preview'] ) ) {
 				/** dark-reader js */
-				//wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26', true );
+				wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26',
+					true );
 			}
 
 			$this->frontend_localize();
@@ -107,23 +108,23 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 			wp_enqueue_script( 'wp-dark-mode-admin', WP_DARK_MODE_ASSETS . '/js/admin.min.js', [ 'wp-util' ], WP_DARK_MODE_VERSION, true );
 
 
-			if ( 'wp-dark-mode_page_wp-dark-mode-settings' != $hook ) {
-				return;
+			if ( 'wp-dark-mode_page_wp-dark-mode-settings' == $hook ) {
+
+
+				wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
+				wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
+
+				if ( wp_dark_mode()->is_ultimate_active() ) {
+					wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26',
+						true );
+				}
+
+				$cm_settings               = [];
+				$cm_settings['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
+
+				wp_enqueue_script( 'wp-theme-plugin-editor' );
+				wp_enqueue_style( 'wp-codemirror' );
 			}
-
-			wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
-			wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
-
-			if(wp_dark_mode()->is_ultimate_active()) {
-				wp_enqueue_script( 'wp-dark-mode-dark-reader', WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js', [ 'jquery' ], '4.9.26',
-					true );
-			}
-
-			$cm_settings = [];
-			$cm_settings['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
-
-			wp_enqueue_script( 'wp-theme-plugin-editor' );
-			wp_enqueue_style( 'wp-codemirror' );
 
 			wp_localize_script( 'wp-dark-mode-admin', 'wpDarkMode', [
 				'pluginUrl'          => WP_DARK_MODE_URL,
@@ -141,7 +142,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 				'is_pro_active'      => wp_dark_mode()->is_pro_active(),
 				'is_ultimate_active' => wp_dark_mode()->is_ultimate_active(),
-				'cm_settings'        => $cm_settings,
+				'cm_settings'        => $cm_settings ?? '',
 				'is_settings_page'   => 'wp-dark-mode_page_wp-dark-mode-settings' == $hook,
 				'enable_backend'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ),
 
