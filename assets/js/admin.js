@@ -118,7 +118,7 @@ import './components/slider';
                 DarkReader.disable();
             }
 
-            localStorage.setItem('wp_dark_mode_active', is_saved);
+            localStorage.setItem('wp_dark_mode_admin_active', is_saved);
 
             window.dispatchEvent(new CustomEvent('wp_dark_mode', {active: is_saved}));
         },
@@ -130,7 +130,7 @@ import './components/slider';
         },
 
         initDarkmode: function () {
-            const is_saved = localStorage.getItem('wp_dark_mode_active');
+            const is_saved = localStorage.getItem('wp_dark_mode_admin_active');
 
             if (wpDarkMode.enable_backend && 1 == is_saved && !wpDarkMode.is_block_editor) {
 

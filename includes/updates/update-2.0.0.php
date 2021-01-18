@@ -81,7 +81,8 @@ class WP_Dark_Mode_Update_2_0_0 {
 	}
 
 	private function update_color_settings() {
-		$color_settings = get_option( 'wp_dark_mode_color', [] );
+		$color_settings = get_option( 'wp_dark_mode_style', [] );
+
 		if ( empty( $color_settings ) ) {
 			$color_settings = [];
 		}

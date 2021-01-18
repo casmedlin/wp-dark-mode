@@ -1,6 +1,6 @@
 <div class="wp-dark-mode-notice-icon">
     <a href="https://wppool.dev/wp-dark-mode" target="_blank" data-caption-trans="banner_offer">
-        <img src="<?php echo wp_dark_mode()->plugin_url( 'assets/images/notices/logo-orange.svg' ); ?>"
+        <img src="<?php echo WP_DARK_MODE_ASSETS. '/images/notices/logo-orange.svg'; ?>"
              alt="WP Dark Mode Icon">
     </a>
 </div>
@@ -14,7 +14,7 @@
 <div class="wp-dark-mode-notice-actions">
 
     <a href="https://wppool.dev/wp-dark-mode" target="_blank" class="banner_offer">
-        <img src="<?php echo wp_dark_mode()->plugin_url( 'assets/images/notices/banner-offer.svg' ); ?>" alt="">
+        <img src="<?php echo WP_DARK_MODE_ASSETS. '/images/notices/banner-offer.svg'; ?>" alt="">
     </a>
 
     <a href="https://wppool.dev/wp-dark-mode" target="_blank"

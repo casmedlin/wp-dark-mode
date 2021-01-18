@@ -36,6 +36,12 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 		public function declare_css_variables() {
 			$colors = wp_dark_mode_color_presets();
 
+			$colors = [
+				'bg'   => apply_filters( 'wp_dark_mode/bg_color', $colors['bg'] ),
+				'text' => apply_filters( 'wp_dark_mode/text_color', $colors['text'] ),
+				'link' => apply_filters( 'wp_dark_mode/link_color', $colors['link'] ),
+			];
+
 			?>
 			<style>
 				:root {

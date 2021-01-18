@@ -414,7 +414,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 						'desc'    => __( 'Select the text color when the dark mode is on.', 'wp-dark-mode' ),
 						'type'    => 'color',
 					),
-					'darkmode_links_color' => array(
+					'darkmode_link_color' => array(
 						'name'    => 'darkmode_link_color',
 						'default' => '',
 						'label'   => __( 'Darkmode Links Color', 'wp-dark-mode' ),

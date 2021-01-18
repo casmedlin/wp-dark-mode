@@ -1,6 +1,6 @@
 <div class="license-activation-notice">
     <div class="wp-dark-mode-notice-icon">
-        <img src="<?php echo wp_dark_mode()->plugin_url( 'assets/images/wp-dark-mode-icon.png' ); ?>" alt="WP Dark Mode Icon">
+        <img src="<?php echo WP_DARK_MODE_ASSETS.'/images/wp-dark-mode-icon.png'; ?>" alt="WP Dark Mode Icon">
     </div>
 
     <div class="wp-dark-mode-notice-text">

@@ -69,6 +69,13 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 				$pro_version = WP_DARK_MODE_PRO_VERSION;
 			}
 
+			$colors = wp_dark_mode_color_presets();
+			$colors = [
+				'bg'   => apply_filters( 'wp_dark_mode/bg_color', $colors['bg'] ),
+				'text' => apply_filters( 'wp_dark_mode/text_color', $colors['text'] ),
+				'link' => apply_filters( 'wp_dark_mode/link_color', $colors['link'] ),
+			];
+
 			wp_localize_script( 'wp-dark-mode-frontend', 'wpDarkMode', [
 				'config'              => [
 					'brightness' => wp_dark_mode_get_settings( 'wp_dark_mode_color', 'brightness', 100 ),
@@ -77,7 +84,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 				],
 
 				'enable_preset'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'on' ),
-				'colors'            => wp_dark_mode_color_presets(),
+				'colors'            => $colors,
 				'enable_frontend'   => wp_dark_mode_enabled(),
 				'enable_os_mode'    => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_os_mode', 'on' ),
 				'excludes'          => apply_filters( 'wp_dark_mode/excludes', trim( $excludes, ',' ) ),
