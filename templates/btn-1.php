@@ -8,8 +8,8 @@ $position    = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switcher_posit
 <div class="wp-dark-mode-switcher wp-dark-mode-ignore  style-1 <?php echo $is_floating ? "floating $position" : ''; ?>">
     <label for="wp-dark-mode-switch">
         <div class="modes">
-            <img class="light" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-1/light.png'; ?>">
-            <img class="dark" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-1/dark.png'; ?>">
+            <img class="light" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-1/light.png'; ?>" alt="Light">
+            <img class="dark" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-1/dark.png'; ?>" alt="Dark">
         </div>
     </label>
 </div>

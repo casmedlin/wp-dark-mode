@@ -12,8 +12,8 @@ $dark_text   = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_text_da
     <p><?php echo $light_text; ?></p>
     <label for="wp-dark-mode-switch">
         <div class="modes">
-            <img class="light" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-4/sun.png'; ?>">
-            <img class="dark" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-4/moon.png'; ?>">
+            <img class="light" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-4/sun.png'; ?>" alt="Light">
+            <img class="dark" src="<?php echo WP_DARK_MODE_ASSETS.'/images/btn-4/moon.png'; ?>" alt="Dark">
         </div>
     </label>
     <p><?php echo $dark_text; ?></p>

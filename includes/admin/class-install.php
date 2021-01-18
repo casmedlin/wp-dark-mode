@@ -33,7 +33,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Install' ) ) {
 		 */
 		private static function create_default_data() {
 
-			update_option( 'wp_dark_mode_version', wp_dark_mode()->version );
+			update_option( 'wp_dark_mode_version', WP_DARK_MODE_VERSION );
 
 			$install_date = get_option( 'wp_dark_mode_install_time' );
 
