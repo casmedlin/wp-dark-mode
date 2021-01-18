@@ -10,12 +10,62 @@ if(!class_exists('WP_Dark_Mode_Admin')){
 		 * WP_Dark_Mode_Admin constructor.
 		 */
 		public function __construct() {
+			add_action( 'admin_head', [ $this, 'header_scripts' ], 1 );
+
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
 			add_action( 'admin_init', [ $this, 'init_update' ] );
 
 			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
 
+		}
+
+		public function header_scripts() {
+			if ( ! wp_dark_mode_is_gutenberg_page() ) { ?>
+
+				<script>
+                    window.wpDarkMode = <?php echo json_encode( wp_dark_mode_localize_array() ); ?>;
+
+                    //check if main element
+                    window.wp_dark_mode_is_main_element = (tagName) => {
+                        const elements = [
+                            'MARK',
+                            'CODE',
+                            'PRE',
+                            'INS',
+                            'OPTION',
+                            'INPUT',
+                            'SELECT',
+                            'TEXTAREA',
+                            'BUTTON',
+                            'A',
+                            'VIDEO',
+                            'CANVAS',
+                            'PROGRESS',
+                            'IFRAME',
+                            'SVG',
+                            'PATH',
+                        ];
+
+                        return !elements.includes(tagName);
+
+                    };
+				</script>
+
+				<script src="<?php echo WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js'; ?>"></script>
+				<script>
+                    const is_saved = localStorage.getItem('wp_dark_mode_admin_active');
+
+                    if (is_saved && is_saved != 0) {
+                        document.querySelector('html').classList.add('wp-dark-mode-active');
+
+                        DarkReader.enable();
+
+                        document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.add('active'));
+                    }
+				</script>
+				<?php
+			}
 		}
 
 		/**

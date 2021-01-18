@@ -26,14 +26,14 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
             add_action( 'wp_footer', [ $this, 'display_widget' ] );
 
 			//declare custom color css variables
-			add_action( 'wp_head', [ $this, 'declare_css_variables' ] );
+			add_action( 'wp_head', [ $this, 'header_scripts' ], 1 );
 
 		}
 
 		/**
 		 * declare custom color css variables
 		 */
-		public function declare_css_variables() {
+		public function header_scripts() {
 			$colors = wp_dark_mode_color_presets();
 
 			$colors = [
@@ -50,7 +50,57 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 					--wp-dark-mode-link: <?php echo $colors['link']; ?>;
 				}
 			</style>
+
 			<?php
+			if ( ! isset( $_REQUEST['elementor-preview'] ) ) { ?>
+                <script>
+                    window.wpDarkMode = <?php echo json_encode( wp_dark_mode_localize_array() ); ?>;
+
+                    //check if main element
+                    window.wp_dark_mode_is_main_element = (tagName) => {
+                        const elements = [
+                            'MARK',
+                            'CODE',
+                            'PRE',
+                            'INS',
+                            'OPTION',
+                            'INPUT',
+                            'SELECT',
+                            'TEXTAREA',
+                            'BUTTON',
+                            'A',
+                            'VIDEO',
+                            'CANVAS',
+                            'PROGRESS',
+                            'IFRAME',
+                            'SVG',
+                            'PATH',
+                        ];
+
+                        return !elements.includes(tagName);
+
+                    };
+                </script>
+
+                <script src="<?php echo WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js'; ?>"></script>
+                <script>
+
+                    const is_saved = localStorage.getItem('wp_dark_mode_active');
+
+                    if ((is_saved && is_saved != 0) || (!is_saved && wpDarkMode.default_mode)) {
+                        document.querySelector('html').classList.add('wp-dark-mode-active');
+
+                        DarkReader.enable({
+                            brightness: 100,
+                            contrast: 90,
+                            sepia: 10
+                        });
+
+                        document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.add('active'));
+                    }
+                </script>
+				<?php
+			}
 		}
 
 		/**

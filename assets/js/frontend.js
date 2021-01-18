@@ -166,28 +166,3 @@
     document.addEventListener('DOMContentLoaded', app.init);
 
 })();
-
-//check if main element
-window.wp_dark_mode_is_main_element = (tagName) => {
-    const elements = [
-        'MARK',
-        'CODE',
-        'PRE',
-        'INS',
-        'OPTION',
-        'INPUT',
-        'SELECT',
-        'TEXTAREA',
-        'BUTTON',
-        'A',
-        'VIDEO',
-        'CANVAS',
-        'PROGRESS',
-        'IFRAME',
-        'SVG',
-        'PATH',
-    ];
-
-    return !elements.includes(tagName);
-
-};
