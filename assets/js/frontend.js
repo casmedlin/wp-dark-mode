@@ -32,10 +32,10 @@
             }
 
             //handle switch click
-            const darkmodeSwitch = document.querySelector('.wp-dark-mode-switch');
-            if (darkmodeSwitch) {
-                darkmodeSwitch.addEventListener('click', app.handleToggle);
-            }
+            document.querySelectorAll('.wp-dark-mode-switcher').forEach(switcher => {
+                switcher.addEventListener('click', app.handleToggle);
+            });
+
 
             window.addEventListener('wp_dark_mode', function (e) {
                 const active = e.detail.active;
@@ -72,7 +72,7 @@
         },
 
         handleToggle: function () {
-
+            
             const html = document.querySelector('html');
             html.classList.toggle('wp-dark-mode-active');
 
