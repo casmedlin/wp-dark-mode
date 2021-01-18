@@ -26,8 +26,7 @@
             app.initDarkmode();
 
             //check OS mode
-            //if (sessionStorage.getItem('wp_dark_mode_frontend') != 0) {
-            if (localStorage.getItem('wp_dark_mode_active') != 0) {
+            if (wpDarkMode.enable_os_mode && localStorage.getItem('wp_dark_mode_active') != 0) {
                 app.checkOsMode();
             }
 
@@ -53,7 +52,7 @@
                     document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.remove('active'));
                 }
 
-            }, false);
+            });
 
         },
 
@@ -102,9 +101,14 @@
         isEnabled: () => DarkReader.enabled,
 
         checkOsMode: function () {
-
             const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
+            //set darkmode
+            if (darkMediaQuery.matches) {
+                app.enable();
+            }
+
+            //watch changes
             try {
                 // Chrome & Firefox
                 darkMediaQuery.addEventListener('change', function (e) {
@@ -117,11 +121,11 @@
                     darkMediaQuery.addListener(function (e) {
                         const newColorScheme = e.matches ? 'dark' : 'light';
                         window.dispatchEvent(new CustomEvent('wp_dark_mode', {detail: {active: 'dark' === newColorScheme}}));
-
                     });
                 } catch (e2) {
                     console.error(e2);
                 }
+
             }
         },
 
