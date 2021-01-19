@@ -480,7 +480,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 
 		public function switch_menus() {
 
-			$switch_menus = wp_dark_mode_get_settings('wp_dark_mode_display', 'switch_menus', []);
+			$switch_menus = wp_dark_mode_get_settings('wp_dark_mode_switch', 'switch_menus', []);
 
 			?>
             <select name="wp_dark_mode_switch[switch_menus][]" multiple id="wp_dark_mode_switch[switch_menus]">
