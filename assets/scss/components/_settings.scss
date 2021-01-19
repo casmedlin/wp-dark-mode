@@ -271,7 +271,7 @@ tr.filter_preview {
 }
 
 .doc-section {
-  list-style: disc;
+  list-style: none;
 
   img {
     max-width: 100%;
@@ -279,7 +279,7 @@ tr.filter_preview {
   }
 
   h3 {
-    font-weight: 300;
+    font-weight: bold;
   }
 
 }
