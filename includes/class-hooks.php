@@ -82,7 +82,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
                     };
                 </script>
 
-                <script src="<?php echo WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js'; ?>"></script>
+                <script src="<?php echo WP_DARK_MODE_ASSETS . '/js/dark-mode.js'; ?>"></script>
                 <script>
 
                     const is_saved = localStorage.getItem('wp_dark_mode_active');
@@ -90,7 +90,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
                     if ((is_saved && is_saved != 0) || (!is_saved && wpDarkMode.default_mode)) {
                         document.querySelector('html').classList.add('wp-dark-mode-active');
 
-                        DarkReader.enable({
+                        DarkMode.enable({
                             brightness: 100,
                             contrast: 90,
                             sepia: 10

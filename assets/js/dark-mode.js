@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
         typeof define === 'function' && define.amd ? define(['exports'], factory) :
-            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.DarkReader = {}));
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.DarkMode = {}));
 }(this, (function (exports) { 'use strict';
 
     var __assign = function() {
@@ -196,9 +196,9 @@
                     'Embedded Dark Reader cannot access a cross-origin resource',
                     url,
                     'Overview your URLs and CORS policies or use',
-                    '`DarkReader.setFetchMethod(fetch: (url) => Promise<Response>))`.',
-                    'See if using `DarkReader.setFetchMethod(window.fetch)`',
-                    'before `DarkReader.enable()` works.'
+                    '`DarkMode.setFetchMethod(fetch: (url) => Promise<Response>))`.',
+                    'See if using `DarkMode.setFetchMethod(window.fetch)`',
+                    'before `DarkMode.enable()` works.'
                 ].join(' ')))];
 
             });
@@ -4037,13 +4037,13 @@
         stopWatchingForInlineStyles();
         removeDOMReadyListener(onDOMReady);
     }
-    function createDarkReaderInstanceMarker() {
+    function createDarkModeInstanceMarker() {
         var metaElement = document.createElement('meta');
         metaElement.name = 'darkreader';
         metaElement.content = INSTANCE_ID;
         document.head.appendChild(metaElement);
     }
-    function isAnotherDarkReaderInstanceActive() {
+    function isAnotherDarkModeInstanceActive() {
         var meta = document.querySelector('meta[name="darkreader"]');
         if (meta) {
             if (meta.content !== INSTANCE_ID) {
@@ -4052,7 +4052,7 @@
             return false;
         }
         else {
-            createDarkReaderInstanceMarker();
+            createDarkModeInstanceMarker();
             return false;
         }
     }
@@ -4061,7 +4061,7 @@
         fixes = dynamicThemeFixes;
         isIFrame = iframe;
         if (document.head) {
-            if (isAnotherDarkReaderInstanceActive()) {
+            if (isAnotherDarkModeInstanceActive()) {
                 return;
             }
             createThemeAndWatchForUpdates();
@@ -4075,7 +4075,7 @@
             var headObserver_1 = new MutationObserver(function () {
                 if (document.head) {
                     headObserver_1.disconnect();
-                    if (isAnotherDarkReaderInstanceActive()) {
+                    if (isAnotherDarkModeInstanceActive()) {
                         removeDynamicTheme();
                         return;
                     }

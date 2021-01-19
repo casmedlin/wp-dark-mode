@@ -52,14 +52,14 @@ if(!class_exists('WP_Dark_Mode_Admin')){
                     };
 				</script>
 
-				<script src="<?php echo WP_DARK_MODE_ASSETS . '/vendor/dark-reader.js'; ?>"></script>
+				<script src="<?php echo WP_DARK_MODE_ASSETS . '/js/dark-mode.js'; ?>"></script>
 				<script>
                     const is_saved = localStorage.getItem('wp_dark_mode_admin_active');
 
                     if (is_saved && is_saved != 0) {
                         document.querySelector('html').classList.add('wp-dark-mode-active');
 
-                        DarkReader.enable();
+                        DarkMode.enable();
 
                         document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.add('active'));
                     }

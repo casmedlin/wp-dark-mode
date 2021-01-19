@@ -115,7 +115,7 @@ import './components/slider';
             if (is_saved) {
                 app.enable();
             } else {
-                DarkReader.disable();
+                DarkMode.disable();
             }
 
             localStorage.setItem('wp_dark_mode_admin_active', is_saved);
@@ -146,7 +146,7 @@ import './components/slider';
         enable: () => {
             //const {brightness, contrast, sepia} = wpDarkMode.config;
 
-            DarkReader.enable({
+            DarkMode.enable({
                 brightness: 100,
                 contrast: 90,
                 sepia: 10

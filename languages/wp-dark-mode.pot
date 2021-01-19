@@ -41,7 +41,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: includes/admin/class-admin.php:53, includes/admin/class-admin.php:53
+#: includes/admin/class-admin.php:103, includes/admin/class-admin.php:103
 msgid "WP Dark Mode"
 msgstr ""
 

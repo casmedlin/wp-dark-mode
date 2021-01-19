@@ -89,16 +89,16 @@
         enable: () => {
             const {config: {brightness, contrast, sepia}} = wpDarkMode;
 
-            DarkReader.enable({
+            DarkMode.enable({
                 brightness,
                 contrast,
                 sepia
             });
         },
 
-        disable: () => DarkReader.disable(),
+        disable: () => DarkMode.disable(),
 
-        isEnabled: () => DarkReader.enabled,
+        isEnabled: () => DarkMode.enabled,
 
         checkOsMode: function () {
             const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

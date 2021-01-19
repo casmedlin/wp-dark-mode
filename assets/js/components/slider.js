@@ -16,7 +16,7 @@
                     const contrast = $("[name='wp_dark_mode_color[contrast]']").val();
                     const sepia = $("[name='wp_dark_mode_color[sepia]']").val();
 
-                    DarkReader.enable({
+                    DarkMode.enable({
                         brightness,
                         contrast,
                         sepia,
