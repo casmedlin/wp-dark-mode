@@ -2722,7 +2722,7 @@
                         important = _a.important,
                         sourceValue = _a.sourceValue;
 
-                    if (wpDarkMode.enable_preset) {
+                    if (wpDarkMode.enable_preset || wpDarkMode.customize_colors) {
 
                         if (wp_dark_mode_is_main_element(element.tagName)) {
 

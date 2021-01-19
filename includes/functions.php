@@ -133,7 +133,8 @@ function wp_dark_mode_localize_array(){
 			'sepia'      => wp_dark_mode_get_settings( 'wp_dark_mode_color', 'sepia', 10 ),
 		],
 
-		'enable_preset'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'on' ),
+		'enable_preset'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'enable_preset', 'off' ),
+		'customize_colors'  => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_color', 'customize_colors', 'off' ),
 		'colors'            => $colors,
 		'enable_frontend'   => wp_dark_mode_enabled(),
 		'enable_os_mode'    => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_os_mode', 'on' ),
