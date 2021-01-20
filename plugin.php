@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: WP Dark Mode
  * Plugin URI:  https://wppool.dev/wp-dark-mode
@@ -13,12 +14,12 @@
  */
 
 /** don't call the file directly */
-if ( ! defined( 'ABSPATH' ) ) {
-	wp_die( __( 'You can\'t access this page', 'wp-dark-mode' ) );
+if (!defined('ABSPATH')) {
+	wp_die(__('You can\'t access this page', 'wp-dark-mode'));
 }
 
 /** if class `WP_Dark_Mode` doesn't exists yet. */
-if ( ! class_exists( 'WP_Dark_Mode' ) ) {
+if (!class_exists('WP_Dark_Mode')) {
 
 	/**
 	 * Sets up and initializes the plugin.
@@ -79,12 +80,12 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 * @access public
 		 */
 		public function __construct() {
-			if ( $this->check_environment() ) {
+			if ($this->check_environment()) {
 
 				$this->load_files();
 
 				// Load files.
-				add_action( 'init', array( $this, 'init' ), - 999 );
+				add_action('init', array($this, 'init'), -999);
 
 				do_action('wp_dark_mode/loaded');
 
@@ -93,9 +94,8 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 
 
 				/** do the activation stuff */
-				register_activation_hook( __FILE__, [ $this, 'activation' ] );
-				add_action( 'admin_init', [ $this, 'activation_redirect' ] );
-
+				register_activation_hook(__FILE__, [$this, 'activation']);
+				add_action('admin_init', [$this, 'activation_redirect']);
 			}
 		}
 
@@ -111,53 +111,51 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 			$return = true;
 
 			/** Check the PHP version compatibility */
-			if ( version_compare( PHP_VERSION, self::$min_php, '<=' ) ) {
+			if (version_compare(PHP_VERSION, self::$min_php, '<=')) {
 				$return = false;
 
-				$notice = sprintf( esc_html__( 'Unsupported PHP version Min required PHP Version: "%s"', 'wp-dark-mode' ), self::$min_php );
+				$notice = sprintf(esc_html__('Unsupported PHP version Min required PHP Version: "%s"', 'wp-dark-mode'), self::$min_php);
 			}
 
 			/** Add notice and deactivate the plugin if the environment is not compatible */
-			if ( ! $return ) {
+			if (!$return) {
 
-				add_action( 'admin_notices', function () use ( $notice ) { ?>
-                    <div class="notice is-dismissible notice-error">
-                        <p><?php echo $notice; ?></p>
-                    </div>
-				<?php } );
+				add_action('admin_notices', function () use ($notice) { ?>
+					<div class="notice is-dismissible notice-error">
+						<p><?php echo $notice; ?></p>
+					</div>
+				<?php });
 
-				if ( ! function_exists( 'deactivate_plugins' ) ) {
-					require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+				if (!function_exists('deactivate_plugins')) {
+					require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 				}
 
-				deactivate_plugins( plugin_basename( __FILE__ ) );
+				deactivate_plugins(plugin_basename(__FILE__));
 
 				return $return;
 			} else {
 				return $return;
 			}
-
 		}
 
 		/**
 		 * do the activation stuffs
 		 */
 		public function activation() {
-			require $this->plugin_path( 'includes/class-install.php' );
+			require $this->plugin_path('includes/class-install.php');
 
-			add_option( 'wp_dark_mode_do_activation_redirect', true );
-
+			add_option('wp_dark_mode_do_activation_redirect', true);
 		}
 
 		/**
-         *
+		 *
 		 * redirect to settings page after activation the plugin
 		 */
 		public function activation_redirect() {
-			if ( get_option( 'wp_dark_mode_do_activation_redirect', false ) ) {
-				delete_option( 'wp_dark_mode_do_activation_redirect' );
+			if (get_option('wp_dark_mode_do_activation_redirect', false)) {
+				delete_option('wp_dark_mode_do_activation_redirect');
 
-				wp_redirect( admin_url( 'options-general.php?page=wp-dark-mode-settings' ) );
+				wp_redirect(admin_url('options-general.php?page=wp-dark-mode-settings'));
 			}
 		}
 
@@ -170,27 +168,26 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		public function init() {
 
 			/** add admin notices */
-			add_action( 'admin_notices', [ $this, 'print_notices' ], 15 );
+			add_action('admin_notices', [$this, 'print_notices'], 15);
 
 			/** localize our plugin */
-			add_action( 'init', [ $this, 'lang' ] );
+			add_action('init', [$this, 'lang']);
 
 			/** plugin action_links */
-			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
+			add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'plugin_action_links'));
 
 			/** register elementor widget */
-			add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widget' ] );
+			add_action('elementor/widgets/widgets_registered', [$this, 'register_widget']);
 
 			/** include the controls manager if elmentor loaded */
-			if ( did_action( 'elementor/loaded' ) ) {
-				include_once $this->plugin_path( 'elementor/modules/controls/init.php' );
+			if (did_action('elementor/loaded')) {
+				include_once $this->plugin_path('elementor/modules/controls/init.php');
 			}
-
 		}
 
 		/**
-         * check if the pro plugin is active or not
-         *
+		 * check if the pro plugin is active or not
+		 *
 		 * @return bool
 		 */
 		public function is_pro_active() {
@@ -198,33 +195,33 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		}
 
 		/**
-         * check if the pro plugin is active or not
-         *
+		 * check if the pro plugin is active or not
+		 *
 		 * @return bool
 		 */
 		public function is_ultimate_active() {
 
 			global $wp_dark_mode_license;
 
-			if(!$wp_dark_mode_license){
-			    return false;
-            }
+			if (!$wp_dark_mode_license) {
+				return false;
+			}
 
-			$is_ultimate_plan = $wp_dark_mode_license->is_valid_by( 'title', 'WP Dark Mode Ultimate Lifetime' )
-			                    || $wp_dark_mode_license->is_valid_by( 'title', 'WP Dark Mode Ultimate Yearly' )
-			                    || $wp_dark_mode_license->is_valid_by( 'title', 'Lifetime Ultimate 1 Site' )
-			                    || $wp_dark_mode_license->is_valid_by( 'title', 'Lifetime Ultimate 50 Sites' );
+			$is_ultimate_plan = $wp_dark_mode_license->is_valid_by('title', 'WP Dark Mode Ultimate Lifetime')
+				|| $wp_dark_mode_license->is_valid_by('title', 'WP Dark Mode Ultimate Yearly')
+				|| $wp_dark_mode_license->is_valid_by('title', 'Lifetime Ultimate 1 Site')
+				|| $wp_dark_mode_license->is_valid_by('title', 'Lifetime Ultimate 50 Sites');
 
 			$is_valid = $wp_dark_mode_license->is_valid() && $is_ultimate_plan;
 
-			if ( $is_valid ) {
+			if ($is_valid) {
 
 				return true;
 			}
 
 			return false;
 
-		   //return apply_filters('wp_dark_mode_ultimate_active', false);
+			//return apply_filters('wp_dark_mode_ultimate_active', false);
 		}
 
 		/**
@@ -236,26 +233,27 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		public function load_files() {
 
 			//core includes
-			require $this->plugin_path( 'includes/functions.php' );
-			require $this->plugin_path( 'includes/class-enqueue.php' );
-			require $this->plugin_path( 'includes/class-shortcode.php' );
-			require $this->plugin_path( 'includes/class-hooks.php' );
-			require $this->plugin_path( 'includes/scss.inc.php' );
+			require $this->plugin_path('includes/functions.php');
+			require $this->plugin_path('includes/class-enqueue.php');
+			require $this->plugin_path('includes/class-shortcode.php');
+			require $this->plugin_path('includes/class-hooks.php');
+			require $this->plugin_path('includes/scss.inc.php');
+			require $this->plugin_path('wpbakery/bakery.php');
+
 
 			/** load gutenberg block */
-			include_once $this->plugin_path( 'block/plugin.php' );
+			include_once $this->plugin_path('block/plugin.php');
 
-			if(!is_admin()){
-				require $this->plugin_path( 'includes/class-theme-supports.php' );
+			if (!is_admin()) {
+				require $this->plugin_path('includes/class-theme-supports.php');
 			}
 
 			//admin includes
-			if ( is_admin() ) {
-				require $this->plugin_path( 'includes/class-settings-api.php' );
-				require $this->plugin_path( 'includes/class-settings.php' );
-				require $this->plugin_path( 'includes/class-update.php' );
+			if (is_admin()) {
+				require $this->plugin_path('includes/class-settings-api.php');
+				require $this->plugin_path('includes/class-settings.php');
+				require $this->plugin_path('includes/class-update.php');
 			}
-
 		}
 
 		/**
@@ -266,7 +264,7 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 *
 		 */
 		public function lang() {
-			load_plugin_textdomain( 'wp-dark-mode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain('wp-dark-mode', false, dirname(plugin_basename(__FILE__)) . '/languages/');
 		}
 
 		/**
@@ -276,13 +274,19 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 *
 		 * @return array
 		 */
-		public function plugin_action_links( $links ) {
-			$links[] = sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'options-general.php?page=wp-dark-mode-settings' ),
-				__( 'Settings', 'wp-dark-mode' ) );
+		public function plugin_action_links($links) {
+			$links[] = sprintf(
+				'<a href="%1$s">%2$s</a>',
+				admin_url('options-general.php?page=wp-dark-mode-settings'),
+				__('Settings', 'wp-dark-mode')
+			);
 
-			if ( !$this->is_pro_active() && !$this->is_ultimate_active() ) {
-				$links[] = sprintf( '<a href="%1$s" target="_blank" style="color: orangered;font-weight: bold;">%2$s</a>',
-					'https://wppool.dev/wp-dark-mode-pricing', __( 'GET PRO', 'wp-dark-mode' ) );
+			if (!$this->is_pro_active() && !$this->is_ultimate_active()) {
+				$links[] = sprintf(
+					'<a href="%1$s" target="_blank" style="color: orangered;font-weight: bold;">%2$s</a>',
+					'https://wppool.dev/wp-dark-mode-pricing',
+					__('GET PRO', 'wp-dark-mode')
+				);
 			}
 
 			return $links;
@@ -295,10 +299,10 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 *
 		 * @return string
 		 */
-		public function plugin_path( $path = null ) {
+		public function plugin_path($path = null) {
 
-			if ( ! $this->plugin_path ) {
-				$this->plugin_path = trailingslashit( plugin_dir_path( __FILE__ ) );
+			if (!$this->plugin_path) {
+				$this->plugin_path = trailingslashit(plugin_dir_path(__FILE__));
 			}
 
 			return $this->plugin_path . $path;
@@ -311,10 +315,10 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 *
 		 * @return string
 		 */
-		public function plugin_url( $path = null ) {
+		public function plugin_url($path = null) {
 
-			if ( ! $this->plugin_url ) {
-				$this->plugin_url = trailingslashit( plugin_dir_url( __FILE__ ) );
+			if (!$this->plugin_url) {
+				$this->plugin_url = trailingslashit(plugin_dir_url(__FILE__));
 			}
 
 			return $this->plugin_url . $path;
@@ -327,7 +331,7 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 * @since 1.0.0
 		 */
 		public function template_path() {
-			return apply_filters( 'wp_dark_mode_template_path', 'wp-dark-mode/' );
+			return apply_filters('wp_dark_mode_template_path', 'wp-dark-mode/');
 		}
 
 		/**
@@ -339,19 +343,19 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 * @return bool|string
 		 * @since 1.0.0
 		 */
-		public function get_template( $name = null, $args = false ) {
+		public function get_template($name = null, $args = false) {
 
-			if ( ! empty( $args ) && is_array( $args ) ) {
-				extract( $args );
+			if (!empty($args) && is_array($args)) {
+				extract($args);
 			}
 
-			$template = locate_template( $this->template_path() . $name . '.php' );
+			$template = locate_template($this->template_path() . $name . '.php');
 
-			if ( ! $template ) {
-				$template = $this->plugin_path( "templates/$name.php" );
+			if (!$template) {
+				$template = $this->plugin_path("templates/$name.php");
 			}
 
-			if ( file_exists( $template ) ) {
+			if (file_exists($template)) {
 				include $template;
 			} else {
 				return false;
@@ -365,9 +369,9 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 */
 		public function register_widget() {
 
-			require $this->plugin_path( 'elementor/class-elementor-widget.php' );
+			require $this->plugin_path('elementor/class-elementor-widget.php');
 
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new WP_Dark_Mode_Elementor_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new WP_Dark_Mode_Elementor_Widget());
 		}
 
 		/**
@@ -379,11 +383,13 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 *
 		 * @return void
 		 */
-		public function add_notice( $class, $message, $only_admin = '' ) {
+		public function add_notice($class, $message, $only_admin = '') {
 
-			$notices = get_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
-			if ( is_string( $message ) && is_string( $class )
-			     && ! wp_list_filter( $notices, array( 'message' => $message ) ) ) {
+			$notices = get_option(sanitize_key('wp_dark_mode_notices'), []);
+			if (
+				is_string($message) && is_string($class)
+				&& !wp_list_filter($notices, array('message' => $message))
+			) {
 
 				$notices[] = array(
 					'message'    => $message,
@@ -391,9 +397,8 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 					'only_admin' => $only_admin,
 				);
 
-				update_option( sanitize_key( 'wp_dark_mode_notices' ), $notices );
+				update_option(sanitize_key('wp_dark_mode_notices'), $notices);
 			}
-
 		}
 
 		/**
@@ -403,19 +408,19 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 * @since 1.0.0
 		 */
 		public function print_notices() {
-			$notices = get_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
-			foreach ( $notices as $notice ) {
+			$notices = get_option(sanitize_key('wp_dark_mode_notices'), []);
+			foreach ($notices as $notice) {
 
-				if ( ! empty( $notice['only_admin'] ) && ! is_admin() ) {
+				if (!empty($notice['only_admin']) && !is_admin()) {
 					continue;
 				}
 
 				?>
-                <div class="notice notice-<?php echo $notice['class']; ?>">
-                    <?php echo $notice['message']; ?>
-                </div>
-				<?php
-				update_option( sanitize_key( 'wp_dark_mode_notices' ), [] );
+				<div class="notice notice-<?php echo $notice['class']; ?>">
+					<?php echo $notice['message']; ?>
+				</div>
+<?php
+				update_option(sanitize_key('wp_dark_mode_notices'), []);
 			}
 		}
 
@@ -427,18 +432,17 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 */
 		public function appsero_init_tracker_wp_dark_mode() {
 
-			if ( ! class_exists( 'Appsero\Client' ) ) {
+			if (!class_exists('Appsero\Client')) {
 				require_once __DIR__ . '/appsero/src/Client.php';
 			}
 
-			$client = new Appsero\Client( '10d1a5ba-96f5-48e1-bc0e-38d39b9a2f85', 'WP Dark Mode', __FILE__ );
+			$client = new Appsero\Client('10d1a5ba-96f5-48e1-bc0e-38d39b9a2f85', 'WP Dark Mode', __FILE__);
 
 			// Active insights
 			$client->insights()->init();
 
 			// Active automatic updater
 			$client->updater();
-
 		}
 
 
@@ -453,18 +457,17 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 		 */
 		public static function instance() {
 
-			if ( is_null( self::$instance ) ) {
+			if (is_null(self::$instance)) {
 				self::$instance = new self();
 			}
 
 			return self::$instance;
 		}
 	}
-
 }
 
 /** if function `wp_dark_mode` doesn't exists yet. */
-if ( ! function_exists( 'wp_dark_mode' ) ) {
+if (!function_exists('wp_dark_mode')) {
 	function wp_dark_mode() {
 		return WP_Dark_Mode::instance();
 	}
