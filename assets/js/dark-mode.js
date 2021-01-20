@@ -193,7 +193,7 @@
         return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2, Promise.reject(new Error([
-                    'Embedded Dark Reader cannot access a cross-origin resource',
+                    'Embedded DarkMode cannot access a cross-origin resource',
                     url,
                     'Overview your URLs and CORS policies or use',
                     '`DarkMode.setFetchMethod(fetch: (url) => Promise<Response>))`.',
@@ -232,6 +232,8 @@
     }
     var messageListeners = new Set();
     function sendMessage() {
+        return;
+
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];

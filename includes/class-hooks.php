@@ -83,6 +83,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
                 </script>
 
                 <script src="<?php echo WP_DARK_MODE_ASSETS . '/js/dark-mode.js'; ?>"></script>
+
                 <script>
 
                     const is_saved = localStorage.getItem('wp_dark_mode_active');

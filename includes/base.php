@@ -47,6 +47,7 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 				add_action( 'init', [ $this, 'lang' ] );
 
 				add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widget' ] );
+
 				if ( did_action( 'elementor/loaded' ) ) {
 					include_once WP_DARK_MODE_PATH . '/elementor/modules/controls/init.php';
 				}

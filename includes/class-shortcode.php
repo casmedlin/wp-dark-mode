@@ -30,6 +30,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Shortcode' ) ) {
 
 			$atts = shortcode_atts( [
 				'floating' => 'no',
+				'class'    => '',
 				'style'    => 1,
 			], $atts );
 

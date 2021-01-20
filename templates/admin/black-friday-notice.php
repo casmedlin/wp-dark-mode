@@ -24,19 +24,19 @@
 </div>
 
 <script>
-    (function ($) {
-        $(document).on('click', '.black-friday-notice .notice-dismiss', function () {
-
-
-            wp.ajax.send('hide_black_friday_notice', {
-                success: function (res) {
-                    console.log(res);
-                },
-
-                error: function (error) {
-                    console.log(error);
-                },
-            });
-        })
-    })(jQuery)
+    // (function ($) {
+    //     $(document).on('click', '.black-friday-notice .notice-dismiss', function () {
+    //
+    //
+    //         wp.ajax.send('hide_black_friday_notice', {
+    //             success: function (res) {
+    //                 console.log(res);
+    //             },
+    //
+    //             error: function (error) {
+    //                 console.log(error);
+    //             },
+    //         });
+    //     })
+    // })(jQuery)
 </script>

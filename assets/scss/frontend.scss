@@ -325,6 +325,10 @@
   }
 }
 
+/*-------------- post_page switcher -----------------*/
+.wp-dark-mode-switcher.post_page {
+  display: inherit;
+}
 
 /*---------------- Toggle -----------------------*/
 .wp-dark-mode-switcher {
@@ -405,7 +409,7 @@
   display: none !important;
 }
 
-/*--- Menu Switch Style ---*/
+/*--------------- Menu Switch Style -------------------*/
 .wp-dark-mode-menu-item {
   display: flex;
   align-items: center;
@@ -419,7 +423,7 @@
 }
 
 
-/**--- Custom Menu Switch Icon ---**/
+/**----------- Custom Menu Switch Icon ---------------**/
 .wp-dark-mode-switcher.custom-switch {
   label {
     width: 50px;
@@ -462,7 +466,7 @@
 
 }
 
-/**----**/
+/**--------abstracts css-------**/
 
 .wp-dark-mode-ignore, .wp-dark-mode-include {
   binding: none;
