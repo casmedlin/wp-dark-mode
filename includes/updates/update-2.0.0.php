@@ -46,14 +46,18 @@ class WP_Dark_Mode_Update_2_0_0 {
 	}
 
 	private function update_includes_excludes(){
+		$advanced_settings = get_option( 'wp_dark_mode_advanced', [] );
+
 		$settings     = get_option( 'wp_dark_mode_display', [] );
 		$new_settings = [];
 
-		$keys = [
-			'includes',
-			'excludes',
-			'exclude_pages',
-		];
+		if(!empty($settings) && is_array($settings)) {
+			$keys = [
+				'includes',
+				'excludes',
+				'exclude_pages',
+			];
+		}
 
 		foreach ( $keys as $key ) {
 			if ( ! empty( $settings[ $key ] ) ) {
@@ -61,7 +65,12 @@ class WP_Dark_Mode_Update_2_0_0 {
 			}
 		}
 
-		update_option( 'wp_dark_mode_includes_excludes', $settings );
+		if ( ! empty( $advanced_settings ) && is_array($advanced_settings) ) {
+			$new_settings['specific_category']   = $advanced_settings['specific_category'];
+			$new_settings['specific_categories'] = $advanced_settings['specific_categories'];
+		}
+
+		update_option( 'wp_dark_mode_includes_excludes', $new_settings );
 	}
 
 	private function update_advanced_settings() {

@@ -16,6 +16,8 @@
                     const contrast = $("[name='wp_dark_mode_color[contrast]']").val();
                     const sepia = $("[name='wp_dark_mode_color[sepia]']").val();
 
+                    window.wpDarkMode.includes = '.filter-preview'
+
                     DarkMode.enable({
                         brightness,
                         contrast,

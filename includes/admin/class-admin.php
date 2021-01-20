@@ -11,13 +11,8 @@ if(!class_exists('WP_Dark_Mode_Admin')){
 		 */
 		public function __construct() {
 			add_action( 'admin_head', [ $this, 'header_scripts' ], 1 );
-
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-
-			add_action( 'admin_init', [ $this, 'init_update' ] );
-
 			add_action( 'admin_bar_menu', [ $this, 'render_admin_switcher_menu' ], 2000 );
-
 		}
 
 		public function header_scripts() {
@@ -109,16 +104,6 @@ if(!class_exists('WP_Dark_Mode_Admin')){
 			wp_dark_mode()->get_template('admin/get-started/index');
 		}
 
-
-		public function init_update() {
-
-			if ( class_exists( 'WP_Dark_Mode_Update' ) && current_user_can( 'manage_options' ) ) {
-				$updater = new WP_Dark_Mode_Update();
-				if ( $updater->needs_update() ) {
-					$updater->perform_updates();
-				}
-			}
-		}
 
 		/**
 		 * @return WP_Dark_Mode_Admin|null

@@ -12,6 +12,7 @@ class WP_Dark_Mode_Update {
 	 */
 	private static $upgrades = [ '2.0.0' ];
 
+
 	public function installed_version() {
 
 		return get_option( 'wp_dark_mode_version' );

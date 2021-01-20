@@ -183,7 +183,6 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 				require WP_DARK_MODE_INCLUDES . '/admin/class-admin.php';
 				require WP_DARK_MODE_INCLUDES . '/admin/class-settings-api.php';
 				require WP_DARK_MODE_INCLUDES . '/admin/class-settings.php';
-				require WP_DARK_MODE_INCLUDES . '/admin/class-update.php';
 			}
 
 		}

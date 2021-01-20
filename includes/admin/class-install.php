@@ -22,7 +22,17 @@ if ( ! class_exists( 'WP_Dark_Mode_Install' ) ) {
 		 * @since 1.0.0
 		 */
 		public function __construct() {
-			self::create_default_data();
+			if ( !class_exists( 'WP_Dark_Mode_Update' ) ) {
+				require WP_DARK_MODE_INCLUDES . '/admin/class-update.php';
+
+				$updater = new WP_Dark_Mode_Update();
+
+				if ( $updater->needs_update() ) {
+					$updater->perform_updates();
+				} else {
+					self::create_default_data();
+				}
+			}
 		}
 
 
