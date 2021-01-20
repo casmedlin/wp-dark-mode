@@ -170,6 +170,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 				$style = $style > 2 ? 1 : $style;
 			}
 
+
 			echo do_shortcode( '[wp_dark_mode floating="yes" style="' . $style . '"]' );
 		}
 

@@ -54,7 +54,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Shortcode' ) ) {
 			}
 
 			$html = ob_get_clean();
-
 			return $html;
 		}
 

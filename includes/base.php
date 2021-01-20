@@ -240,7 +240,7 @@ if ( ! class_exists( 'WP_Dark_Mode' ) ) {
 			}
 
 			if ( file_exists( $template ) ) {
-				include_once $template;
+				include $template;
 			} else {
 				return false;
 			}
