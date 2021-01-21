@@ -56,7 +56,6 @@ if(!class_exists('WP_Dark_Mode_Admin')){
 
                         DarkMode.enable();
 
-                        document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.add('active'));
                     }
 				</script>
 				<?php

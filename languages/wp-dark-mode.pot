@@ -41,7 +41,7 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: includes/admin/class-admin.php:98, includes/admin/class-admin.php:98
+#: includes/admin/class-admin.php:97, includes/admin/class-admin.php:97
 msgid "WP Dark Mode"
 msgstr ""
 
@@ -373,11 +373,11 @@ msgstr ""
 msgid "Unsupported PHP version Min required PHP Version: \"%s\""
 msgstr ""
 
-#: includes/base.php:211
+#: includes/base.php:210
 msgid "Settings"
 msgstr ""
 
-#: includes/base.php:215
+#: includes/base.php:214
 msgid "GET PRO"
 msgstr ""
 

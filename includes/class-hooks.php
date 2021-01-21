@@ -28,13 +28,14 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 			//declare custom color css variables
 			add_action( 'wp_head', [ $this, 'header_scripts' ], 10 );
 
+
 		}
 
 		/**
 		 * declare custom color css variables
 		 */
 		public function header_scripts() {
-		    
+
 			if ( ! wp_dark_mode_enabled() ) {
 				return;
 			}
@@ -90,20 +91,14 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
                 <script src="<?php echo WP_DARK_MODE_ASSETS . '/js/dark-mode.js'; ?>"></script>
 
                 <script>
+                    (function () {
+                        const is_saved = localStorage.getItem('wp_dark_mode_active');
 
-                    const is_saved = localStorage.getItem('wp_dark_mode_active');
-
-                    if ((is_saved && is_saved != 0) || (!is_saved && wpDarkMode.default_mode)) {
-                        document.querySelector('html').classList.add('wp-dark-mode-active');
-
-                        DarkMode.enable({
-                            brightness: 100,
-                            contrast: 90,
-                            sepia: 10
-                        });
-
-                        document.querySelectorAll('.wp-dark-mode-switcher').forEach((switcher) => switcher.classList.add('active'));
-                    }
+                        if ((is_saved && is_saved != 0) || (!is_saved && wpDarkMode.default_mode)) {
+                            document.querySelector('html').classList.add('wp-dark-mode-active');
+                            DarkMode.enable();
+                        }
+                    })();
                 </script>
 				<?php
 			}
