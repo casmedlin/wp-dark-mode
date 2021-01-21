@@ -26,7 +26,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
             add_action( 'wp_footer', [ $this, 'display_widget' ] );
 
 			//declare custom color css variables
-			add_action( 'wp_head', [ $this, 'header_scripts' ], 1 );
+			add_action( 'wp_head', [ $this, 'header_scripts' ], 10 );
 
 		}
 
@@ -34,6 +34,11 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 		 * declare custom color css variables
 		 */
 		public function header_scripts() {
+		    
+			if ( ! wp_dark_mode_enabled() ) {
+				return;
+			}
+
 			$colors = wp_dark_mode_color_presets();
 
 			$colors = [
