@@ -540,9 +540,17 @@ if ( ! class_exists( 'WP_Dark_Mode_Settings' ) ) {
 
 			?>
 
+            <div id="image_compare">
+                <!-- before useing dark mode -->
+                <img src="<?php echo WP_DARK_MODE_ASSETS; ?>/images/light_demo.svg" alt="Pro Features">
+                <!-- after using dark mode -->
+                <img src="<?php echo WP_DARK_MODE_ASSETS; ?>/images/dark_demo.svg" alt="Pro Features">
+            </div>
+
             <p>🔹️ <strong>Light Mode Image: </strong> The image link shown in the light mode.</p>
             <p>🔹️ <strong>Dark Mode Image: </strong> The image link that will replace the light mode image while in dark mode.</p>
             <br>
+
             <table class="image-settings-table">
                 <tbody>
                 <tr>

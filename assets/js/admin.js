@@ -96,7 +96,7 @@ import './components/slider';
 
 
             /**--- handle promo popups ---**/
-            setTimeout(() => document.querySelectorAll('.image-choose-opt.disabled, .form-table tr.disabled').forEach((element) => {
+            setTimeout(() => document.querySelectorAll('.image-settings-table.disabled, .image-choose-opt.disabled, .form-table tr.disabled').forEach((element) => {
                 element.addEventListener('click', app.showPopup);
             }), 100);
 
@@ -190,7 +190,7 @@ import './components/slider';
                    .exclude_pages, 
                    .enable_menu_switch, 
                    .switch_menus,
-                   .image_settings,
+                   .image-settings-table,
                    .custom_css,
                    .brightness,
                    .contrast,

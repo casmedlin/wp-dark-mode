@@ -59,9 +59,13 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 			if ( 'wp-dark-mode_page_wp-dark-mode-settings' == $hook ) {
 
-
 				wp_enqueue_style( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.css' );
 				wp_enqueue_script( 'select2', WP_DARK_MODE_ASSETS . '/vendor/select2.min.js', [ 'jquery' ], false, true );
+
+				wp_enqueue_style( 'wp-dark-mode-twentytwenty', WP_DARK_MODE_ASSETS . '/vendor/twentytwenty/twentytwenty.css' );
+				wp_enqueue_script( 'wp-dark-mode-twentytwenty', WP_DARK_MODE_ASSETS . '/vendor/twentytwenty/jquery.twentytwenty.js', [ 'jquery' ], false, true );
+				wp_enqueue_script( 'wp-dark-mode-move', WP_DARK_MODE_ASSETS . '/vendor/jquery.event.move.js', [ 'jquery' ], false, true );
+
 				$cm_settings               = [];
 				$cm_settings['codeEditor'] = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
 

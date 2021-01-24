@@ -1,6 +1,14 @@
+#image_compare {
+  width: 400px;
+}
+
 /* Image Settings Table */
 .image-settings-table {
   width: 100%;
+
+  &.disabled {
+    opacity: .5;
+  }
 
   tr {
     &:first-child {

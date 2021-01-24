@@ -1,6 +1,10 @@
 (function ($) {
 
     $(document).ready(function () {
+
+        $("#image_compare").twentytwenty();
+
+        // brightness, contrast & sepia config sliders
         const sliders = $('.brightness, .contrast, .sepia');
 
         sliders.each(function () {
