@@ -4,6 +4,12 @@ $is_floating = isset( $floating ) && 'yes' == $floating;
 $position    = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switcher_position', 'right_bottom' );
 $light_text  = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_text_light', 'Light' );
 $dark_text   = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_text_dark', 'Dark' );
+
+if ( 'on' != wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'custom_switch_text', 'off' ) ) {
+	$light_text = 'Light';
+	$dark_text  = 'Dark';
+}
+
 ?>
 
 <div class="wp-dark-mode-switcher wp-dark-mode-ignore style-2  <?php echo $class??''; ?> <?php echo $is_floating ? "floating $position" : ''; ?>">

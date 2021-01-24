@@ -8,7 +8,6 @@ $dark_img  = wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'switch_icon_dark
 
 ?>
 
-<input type="checkbox" id="wp-dark-mode-switch" class="wp-dark-mode-switch">
 <div class="custom-switch wp-dark-mode-switcher wp-dark-mode-ignore  <?php echo $class??''; ?> <?php echo $is_floating ? "floating $position" : ''; ?>">
     <label for="wp-dark-mode-switch">
         <div class="modes">
