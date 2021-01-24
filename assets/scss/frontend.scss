@@ -103,50 +103,55 @@
 }
 
 /*----------- btn style-3 -------------*/
-.wp-dark-mode-switcher.style-3 img {
-  max-height: 18px;
-  max-width: 18px;
+.wp-dark-mode-switcher.style-3 {
+  display: flex !important;
+
+  img {
+    max-height: 18px;
+    max-width: 18px;
+  }
+
+  .moon-light, .sun-light {
+    display: none;
+  }
+
+  label {
+    height: 30px;
+    width: 60px;
+    background: #EE5913;
+    margin: 0 7px;
+  }
+
+  .toggle {
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    transform: translateY(-50%) !important;
+    left: 2px;
+    transition: all .2s ease;
+  }
+
+  &.active {
+    .toggle {
+      right: 2px;
+      background: #fff;
+      left: auto;
+    }
+
+    label {
+      background: #555;
+    }
+
+    .moon-light, .sun-light {
+      display: block;
+    }
+
+    .moon-dark, .sun-dark {
+      display: none;
+    }
+  }
 }
 
-.wp-dark-mode-switcher.style-3 .moon-light,
-.wp-dark-mode-switcher.style-3 .sun-light {
-  display: none;
-}
-
-.wp-dark-mode-switcher.style-3 label {
-  height: 30px;
-}
-
-.wp-dark-mode-switcher.style-3 .toggle {
-  height: 25px;
-  width: 25px;
-  top: 50%;
-  transform: translateY(-50%) !important;
-  left: 2px;
-  transition: all .2s ease;
-}
-
-.wp-dark-mode-switcher.style-3 label {
-  width: 60px;
-  background: #EE5913;
-  margin: 0 7px;
-}
-
-.wp-dark-mode-switcher.active.style-3 .toggle {
-  right: 2px;
-  background: #fff;
-  left: auto;
-}
-
-.wp-dark-mode-switcher.active.style-3 .moon-light,
-.wp-dark-mode-switcher.active.style-3 .sun-light {
-  display: block;
-}
-
-.wp-dark-mode-switcher.active.style-3 .moon-dark,
-.wp-dark-mode-switcher.active.style-3 .sun-dark {
-  display: none;
-}
 
 /*----------- btn style-4 -------------*/
 .wp-dark-mode-switcher.style-4 img {
