@@ -1,4 +1,4 @@
-import {createHooks} from '@wordpress/hooks';
+import { createHooks } from '@wordpress/hooks';
 
 window.wpDarkModeHooks = createHooks();
 
@@ -64,7 +64,7 @@ window.wpDarkModeHooks = createHooks();
 
         excludeBGELements: function () {
 
-            if(typeof wpDarkModeFrontend === 'undefined'){
+            if (typeof wpDarkModeFrontend === 'undefined') {
                 return;
             }
 
