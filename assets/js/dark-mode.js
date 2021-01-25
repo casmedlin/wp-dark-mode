@@ -2626,8 +2626,8 @@
         var rulesModCache = new Map();
         var prevFilterKey = null;
         function modifySheet(options) {
-            var newRules = options.sourceCSSRules;
 
+            var newRules = options.sourceCSSRules;
 
             var theme = options.theme, variables = options.variables, ignoreImageAnalysis = options.ignoreImageAnalysis, force = options.force, prepareSheet = options.prepareSheet, isAsyncCancelled = options.isAsyncCancelled;
             var rulesChanged = (rulesModCache.size === 0);
@@ -2636,6 +2636,11 @@
             var themeChanged = (themeKey !== prevFilterKey);
             var modRules = [];
             iterateCSSRules(newRules, function (rule) {
+
+                if ('wp-dark-mode-custom-css' === rule.parentStyleSheet.ownerNode.getAttribute('id')) {
+                    return;
+                }
+
                 var cssText = rule.cssText;
                 var textDiffersFromPrev = false;
                 notFoundCacheKeys.delete(cssText);
