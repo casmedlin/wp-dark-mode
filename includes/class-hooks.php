@@ -147,13 +147,8 @@ if ( ! class_exists( 'WP_Dark_Mode_Hooks' ) ) {
 		 * display the footer widget
 		 */
 		public function display_widget() {
-			global $post;
 
 			if ( ! wp_dark_mode_enabled() ) {
-				return false;
-			}
-
-			if ( isset( $post->ID ) && in_array( $post->ID, wp_dark_mode_exclude_pages() ) ) {
 				return false;
 			}
 

@@ -83,7 +83,6 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 				],
 
 				'colors'          => wp_dark_mode_color_presets(),
-				'enable_frontend' => wp_dark_mode_enabled(),
 				'includes'        => '',
 				'excludes'        => '',
 
