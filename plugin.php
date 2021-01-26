@@ -240,6 +240,7 @@ if (!class_exists('WP_Dark_Mode')) {
 			require $this->plugin_path('includes/scss.inc.php');
 			require $this->plugin_path('wpbakery/bakery.php');
 			require $this->plugin_path('divi_builder/divi_builder.php');
+			require $this->plugin_path('beaver_builder/beaver.php');
 
 
 			/** load gutenberg block */
