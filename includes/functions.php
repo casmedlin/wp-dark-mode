@@ -65,7 +65,7 @@ if ( ! function_exists( 'wp_dark_mode_enabled' ) ) {
 		}
 
 		global $post;
-		$post_id = $post->ID ?? '';
+		$post_id = !empty($post) ? $post->ID : '';
 
 		$excluded_pages = wp_dark_mode_get_settings( 'wp_dark_mode_includes_excludes', 'exclude_pages', [] );
 

@@ -13,7 +13,7 @@ if ( 'on' != wp_dark_mode_get_settings( 'wp_dark_mode_switch', 'custom_switch_te
 
 ?>
 
-<div class="wp-dark-mode-switcher wp-dark-mode-ignore  style-4  <?php echo $class??''; ?> <?php echo $is_floating ? "floating $position" : ''; ?>">
+<div class="wp-dark-mode-switcher wp-dark-mode-ignore  style-4  <?php echo $class; ?> <?php echo $is_floating ? "floating $position" : ''; ?>">
 
     <p class="wp-dark-mode-ignore"><?php echo $light_text; ?></p>
 

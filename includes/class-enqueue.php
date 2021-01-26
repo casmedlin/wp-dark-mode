@@ -88,7 +88,7 @@ if ( ! class_exists( 'WP_Dark_Mode_Enqueue' ) ) {
 
 				'is_pro_active'      => wp_dark_mode()->is_pro_active(),
 				'is_ultimate_active' => wp_dark_mode()->is_ultimate_active(),
-				'cm_settings'        => $cm_settings ?? '',
+				'cm_settings'        => !empty($cm_settings) ? $cm_settings : '',
 				'is_settings_page'   => 'wp-dark-mode_page_wp-dark-mode-settings' == $hook,
 				'enable_backend'     => 'on' == wp_dark_mode_get_settings( 'wp_dark_mode_general', 'enable_backend', 'off' ),
 				'is_block_editor'   => wp_dark_mode_is_gutenberg_page(),

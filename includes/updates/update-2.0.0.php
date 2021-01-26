@@ -82,7 +82,7 @@ class WP_Dark_Mode_Update_2_0_0 {
 		}
 
 
-		$default_setting = $general_settings['default_mode'] ?? 'off';
+		$default_setting = !empty($general_settings['default_mode']) ? $general_settings['default_mode'] : 'off';
 
 		$advanced_settings['default_mode'] = $default_setting;
 
